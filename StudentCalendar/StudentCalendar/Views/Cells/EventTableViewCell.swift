@@ -9,5 +9,7 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
-
+    static let reuseID = "EventTableViewCell"
+    let subjectColorImageView = UIImageView()
+    let titleLabel = UILabel()
 }
