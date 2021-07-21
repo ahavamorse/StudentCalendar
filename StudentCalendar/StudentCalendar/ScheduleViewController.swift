@@ -24,4 +24,17 @@ class ScheduleViewController: UIViewController {
         title = "Calendar"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    func configureTableView() {
+        view.addSubview(tableView)
+        
+        tableView.frame = view.bounds
+        tableView.rowHeight = 80
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.removeExcessCells()
+        
+        tableView.register(EventCell.self, forCellReuseIdentifier: EventCell.reuseID)
+    }
+    
 }
