@@ -20,6 +20,7 @@
 		0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ECB26A8873E00CFEEBA /* Event.swift */; };
 		0C600ECE26A8884300CFEEBA /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ECD26A8884300CFEEBA /* Class.swift */; };
 		0C600ED326A88DCA00CFEEBA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */; };
+		0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0C600ECB26A8873E00CFEEBA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0C600ECD26A8884300CFEEBA /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		0C600EA526A8745000CFEEBA /* StudentCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				0C600ED426A8959000CFEEBA /* Extensions */,
 				0C600ED026A88D7A00CFEEBA /* Views */,
 				0C600ECF26A88D6100CFEEBA /* ViewControllers */,
 				0C600EBA26A8761300CFEEBA /* Models */,
@@ -118,6 +121,14 @@
 				0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0C600ED426A8959000CFEEBA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
 				0C600EC126A879FB00CFEEBA /* Assignment.swift in Sources */,
 				0C600EBF26A8770D00CFEEBA /* Constants.swift in Sources */,
 				0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */,
