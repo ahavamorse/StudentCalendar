@@ -28,4 +28,16 @@ class SubjectsViewController: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
     }
+    
+    func configureTableView() {
+        view.addSubview(tableView)
+        
+        tableView.frame = view.bounds
+        tableView.rowHeight = 60
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.removeExcessCells()
+        
+        tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
+    }
 }
