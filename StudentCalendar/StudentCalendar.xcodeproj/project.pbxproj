@@ -14,6 +14,7 @@
 		0C600EB026A8745400CFEEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAF26A8745400CFEEBA /* Assets.xcassets */; };
 		0C600EB326A8745400CFEEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EB126A8745400CFEEBA /* LaunchScreen.storyboard */; };
 		0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EBB26A8763B00CFEEBA /* Subject.swift */; };
+		0C600EBF26A8770D00CFEEBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EBE26A8770D00CFEEBA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0C600EB226A8745400CFEEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C600EB426A8745400CFEEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C600EBB26A8763B00CFEEBA /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		0C600EBE26A8770D00CFEEBA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0C600EAF26A8745400CFEEBA /* Assets.xcassets */,
 				0C600EB126A8745400CFEEBA /* LaunchScreen.storyboard */,
 				0C600EB426A8745400CFEEBA /* Info.plist */,
+				0C600EBE26A8770D00CFEEBA /* Constants.swift */,
 			);
 			path = StudentCalendar;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C600EBF26A8770D00CFEEBA /* Constants.swift in Sources */,
 				0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */,
 				0C600EAB26A8745000CFEEBA /* ViewController.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
