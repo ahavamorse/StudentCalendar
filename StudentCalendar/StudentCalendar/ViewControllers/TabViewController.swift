@@ -12,6 +12,13 @@ class TabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [createScheduleViewController, createSubjectsViewController]
+        viewControllers = [createScheduleViewController(), /*createSubjectsViewController()*/]
+    }
+    
+    func createScheduleViewController() -> UIViewController {
+        let viewController = ScheduleViewController()
+        viewController.title = "Schedule"
+        viewController.tabBarItem = UITabBarItem(title: "Schedule", image: UIImage(systemName: "calendar"), tag: 0)
+        return viewController
     }
 }
