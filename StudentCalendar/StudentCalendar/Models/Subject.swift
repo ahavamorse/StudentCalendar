@@ -9,7 +9,7 @@
 import Foundation
 
 struct Subject {
-    var name: String
+    var title: String
     var instructor: String
     var startDate: Date
     var endDate: Date
