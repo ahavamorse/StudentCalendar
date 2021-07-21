@@ -32,14 +32,14 @@ class TabBarViewController: UITabBarController {
     func createClassesViewController() -> UINavigationController {
         let viewController = UIViewController()
         viewController.title = "Classes"
-        viewController.tabBarItem = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock.fill"), tag: 2)
+        viewController.tabBarItem = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock"), tag: 2)
         return UINavigationController(rootViewController: viewController)
     }
     
     func createAssessmentsViewController() -> UINavigationController {
         let viewController = UIViewController()
         viewController.title = "Tests"
-        viewController.tabBarItem = UITabBarItem(title: "Tests", image: UIImage(systemName: "book.fill"), tag: 3)
+        viewController.tabBarItem = UITabBarItem(title: "Tests", image: UIImage(systemName: "book"), tag: 3)
         return UINavigationController(rootViewController: viewController)
     }
 }
