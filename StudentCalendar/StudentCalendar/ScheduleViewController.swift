@@ -37,4 +37,15 @@ class ScheduleViewController: UIViewController {
         tableView.register(EventCell.self, forCellReuseIdentifier: EventCell.reuseID)
     }
     
+    func updateUI() {
+        if events.isEmpty {
+            // todo: show empty state
+        } else {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
+    }
 }
+
