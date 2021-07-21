@@ -21,4 +21,11 @@ class EventTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func set(event: Event) {
+        titleLabel.text = event.title
+        subjectColorImageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(named: event.subject.color.rawValue)!)
+    }
+    
+    
 }
