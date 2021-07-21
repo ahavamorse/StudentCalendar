@@ -52,3 +52,11 @@ enum AssignmentStatus {
     case pastDue
     case submittedLate
 }
+
+enum AssesmentType {
+    case quiz
+    case chapterTest
+    case midtermExam
+    case finalExam
+    case other
+}
