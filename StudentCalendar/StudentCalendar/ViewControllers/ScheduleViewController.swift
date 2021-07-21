@@ -34,7 +34,7 @@ class ScheduleViewController: UIViewController {
         tableView.dataSource = self
         tableView.removeExcessCells()
         
-        tableView.register(EventCell.self, forCellReuseIdentifier: EventCell.reuseID)
+        tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
     }
     
     func updateUI() {
@@ -56,7 +56,7 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.reuseID) as! EventCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.reuseID) as! EventTableViewCell
         let event = events[indexPath.row] // TODO
         cell.set(event: event)
         return cell
