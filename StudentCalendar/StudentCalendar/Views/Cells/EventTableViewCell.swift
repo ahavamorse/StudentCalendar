@@ -24,7 +24,7 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func set(event: Event) {
-        subjectColorImageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(named: event.subject.color.rawValue)!)
+        subjectColorImageView.image = UIImage(systemName: "circle.fill")!.withTintColor(event.subject.color)
         titleLabel.text = event.title
     }
     

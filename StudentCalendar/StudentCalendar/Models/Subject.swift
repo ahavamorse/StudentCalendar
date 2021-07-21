@@ -6,12 +6,13 @@
 //  Copyright © 2021 ahavamorse. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Subject {
     var title: String
     var instructor: String
     var startDate: Date
     var endDate: Date
-    var color: SubjectColor
+    var colorName: String
+    var color: UIColor
 }
