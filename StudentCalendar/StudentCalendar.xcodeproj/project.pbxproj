@@ -21,7 +21,7 @@
 		0C600ED326A88DCA00CFEEBA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */; };
 		0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */; };
 		0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */; };
-		0C600EDD26A8BE2B00CFEEBA /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDC26A8BE2B00CFEEBA /* TabViewController.swift */; };
+		0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 		0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		0C600EDC26A8BE2B00CFEEBA /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
-				0C600EDC26A8BE2B00CFEEBA /* TabViewController.swift */,
+				0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 				0C600EC126A879FB00CFEEBA /* Assignment.swift in Sources */,
 				0C600EBF26A8770D00CFEEBA /* Constants.swift in Sources */,
 				0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */,
-				0C600EDD26A8BE2B00CFEEBA /* TabViewController.swift in Sources */,
+				0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */,
 				0C600ECA26A885EC00CFEEBA /* ScheduleViewController.swift in Sources */,
 				0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
