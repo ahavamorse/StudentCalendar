@@ -9,6 +9,7 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
+    
     static let reuseID = "EventTableViewCell"
     let subjectColorImageView = UIImageView()
     let titleLabel = UILabel()
@@ -23,9 +24,26 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func set(event: Event) {
-        titleLabel.text = event.title
         subjectColorImageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(named: event.subject.color.rawValue)!)
+        titleLabel.text = event.title
     }
     
-    
+    private func configure() {
+        addSubview(subjectColorImageView)
+        addSubview(titleLabel)
+        accessoryType = .disclosureIndicator
+        let padding: CGFloat = 12 // customize
+        
+        NSLayoutConstraint.activate([
+            subjectColorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            subjectColorImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            subjectColorImageView.heightAnchor.constraint(equalToConstant: 60), // customize
+            subjectColorImageView.widthAnchor.constraint(equalToConstant: 60), // customize
+            
+            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: subjectColorImageView.trailingAnchor, constant: padding),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40) // customize
+        ])
+    }
 }
