@@ -15,13 +15,18 @@ class ScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         configureViewController()
         configureTableView()
     }
     
+    func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+    }
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
-        title = "Calendar"
     }
     
     func configureTableView() {
@@ -34,6 +39,10 @@ class ScheduleViewController: UIViewController {
         tableView.removeExcessCells()
         
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
+    }
+    
+    @objc func addButtonTapped() {
+        
     }
     
     func updateUI() {
