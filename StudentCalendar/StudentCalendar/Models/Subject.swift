@@ -13,5 +13,6 @@ struct Subject {
     var instructor: String
     var startDate: Date
     var endDate: Date
+    var classTimes: [ClassTime]
     var color: SubjectColor
 }
