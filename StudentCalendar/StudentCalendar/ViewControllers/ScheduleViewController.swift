@@ -40,10 +40,6 @@ class ScheduleViewController: UIViewController {
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
     }
     
-    @objc func addButtonTapped() {
-        
-    }
-    
     func updateUI() {
         if events.isEmpty {
             // todo: show empty state
