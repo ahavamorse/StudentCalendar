@@ -1,5 +1,5 @@
 //
-//  Subject.swift
+//  Class.swift
 //  StudentCalendar
 //
 //  Created by HapiDani on 7/21/21.
@@ -8,10 +8,9 @@
 
 import Foundation
 
-struct Subject {
+struct Class: Event {
     var title: String
-    var instructor: String
-    var startDate: Date
-    var endDate: Date
-    var color: SubjectColor
+    var date: Date  // start time
+    var endTime: Date
+    var subject: Subject
 }
