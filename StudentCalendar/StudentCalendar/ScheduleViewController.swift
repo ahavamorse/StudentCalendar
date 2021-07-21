@@ -19,4 +19,9 @@ class ScheduleViewController: UIViewController {
         configureTableView()
     }
     
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        title = "Calendar"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
