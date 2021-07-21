@@ -14,8 +14,6 @@ class ScheduleViewController: UIViewController {
     var events: [Event] = []
     
     override func viewDidLoad() {
-        events = [Assignment(title: "Homework", date: Date(), subject: Subject(title: "Math", instructor: "Math Teacher", startDate: Date(), endDate: Date(), colorName: "Blue", color: .blue), type: .homework, pointValue: 10, instructions: "Finish promblems 1-10", status: .inProgress)]
-        
         super.viewDidLoad()
         configureViewController()
         configureTableView()
