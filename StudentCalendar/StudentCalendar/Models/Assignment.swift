@@ -14,7 +14,7 @@ struct Assignment: Event {
     var subject: Subject
     var type: AssignmentType
     var pointValue: Int
-    var score: Int
+    var score: Int?
     var instructions: String
     var status: AssignmentStatus
 }
