@@ -8,20 +8,28 @@
 
 import UIKit
 
-class GFTitleLabel: UILabel {
+class TitleLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        configure()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    convenience init(textAlignment: NSTextAlignment) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        self.font = UIFont.preferredFont(forTextStyle: .title1)
+    }
+    
+    private func configure() {
+        textColor = .label
+        adjustsFontSizeToFitWidth = true
+        minimumScaleFactor = 0.9
+        lineBreakMode = .byTruncatingTail
+        translatesAutoresizingMaskIntoConstraints = false
     }
 }
