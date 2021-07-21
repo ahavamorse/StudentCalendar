@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA626A8745000CFEEBA /* AppDelegate.swift */; };
 		0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA826A8745000CFEEBA /* SceneDelegate.swift */; };
-		0C600EAB26A8745000CFEEBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EAA26A8745000CFEEBA /* ViewController.swift */; };
 		0C600EAE26A8745000CFEEBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAC26A8745000CFEEBA /* Main.storyboard */; };
 		0C600EB026A8745400CFEEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAF26A8745400CFEEBA /* Assets.xcassets */; };
 		0C600EB326A8745400CFEEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EB126A8745400CFEEBA /* LaunchScreen.storyboard */; };
@@ -26,7 +25,6 @@
 		0C600EA326A8745000CFEEBA /* StudentCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C600EA626A8745000CFEEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C600EA826A8745000CFEEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0C600EAA26A8745000CFEEBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C600EAD26A8745000CFEEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C600EAF26A8745400CFEEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C600EB226A8745400CFEEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,16 +68,16 @@
 		0C600EA526A8745000CFEEBA /* StudentCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				0C600ED026A88D7A00CFEEBA /* Views */,
+				0C600ECF26A88D6100CFEEBA /* ViewControllers */,
 				0C600EBA26A8761300CFEEBA /* Models */,
 				0C600EA626A8745000CFEEBA /* AppDelegate.swift */,
 				0C600EA826A8745000CFEEBA /* SceneDelegate.swift */,
-				0C600EAA26A8745000CFEEBA /* ViewController.swift */,
 				0C600EAC26A8745000CFEEBA /* Main.storyboard */,
 				0C600EAF26A8745400CFEEBA /* Assets.xcassets */,
 				0C600EB126A8745400CFEEBA /* LaunchScreen.storyboard */,
 				0C600EB426A8745400CFEEBA /* Info.plist */,
 				0C600EBE26A8770D00CFEEBA /* Constants.swift */,
-				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
 			);
 			path = StudentCalendar;
 			sourceTree = "<group>";
@@ -94,6 +92,29 @@
 				0C600ECB26A8873E00CFEEBA /* Event.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0C600ECF26A88D6100CFEEBA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0C600ED026A88D7A00CFEEBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C600ED126A88D8800CFEEBA /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C600ED126A88D8800CFEEBA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +193,6 @@
 				0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */,
 				0C600ECA26A885EC00CFEEBA /* ScheduleViewController.swift in Sources */,
 				0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */,
-				0C600EAB26A8745000CFEEBA /* ViewController.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
 				0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */,
 				0C600ECE26A8884300CFEEBA /* Class.swift in Sources */,
