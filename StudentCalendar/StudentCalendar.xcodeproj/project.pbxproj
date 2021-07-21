@@ -20,6 +20,7 @@
 		0C600ECE26A8884300CFEEBA /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ECD26A8884300CFEEBA /* Class.swift */; };
 		0C600ED326A88DCA00CFEEBA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */; };
 		0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */; };
+		0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0C600ECD26A8884300CFEEBA /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		0C600ED026A88D7A00CFEEBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C600ED926A8AEDE00CFEEBA /* Labels */,
 				0C600ED126A88D8800CFEEBA /* Cells */,
 			);
 			path = Views;
@@ -126,6 +129,14 @@
 				0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0C600ED926A8AEDE00CFEEBA /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
 				0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */,
 				0C600ECE26A8884300CFEEBA /* Class.swift in Sources */,
+				0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */,
 				0C600ED326A88DCA00CFEEBA /* EventTableViewCell.swift in Sources */,
 				0C600EC526A87EBD00CFEEBA /* Assessment.swift in Sources */,
 			);

@@ -31,14 +31,17 @@ class EventTableViewCell: UITableViewCell {
     private func configure() {
         addSubview(subjectColorImageView)
         addSubview(titleLabel)
+        subjectColorImageView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         accessoryType = .disclosureIndicator
         let padding: CGFloat = 12 // customize
         
         NSLayoutConstraint.activate([
             subjectColorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             subjectColorImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            subjectColorImageView.heightAnchor.constraint(equalToConstant: 60), // customize
-            subjectColorImageView.widthAnchor.constraint(equalToConstant: 60), // customize
+            subjectColorImageView.heightAnchor.constraint(equalToConstant: 30), // customize
+            subjectColorImageView.widthAnchor.constraint(equalToConstant: 30), // customize
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: subjectColorImageView.trailingAnchor, constant: padding),
