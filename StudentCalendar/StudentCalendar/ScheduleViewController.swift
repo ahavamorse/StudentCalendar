@@ -51,10 +51,14 @@ class ScheduleViewController: UIViewController {
 
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return events.count
+        // TODO: sort events by day then create sections for each day and rows for each event that day
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.reuseID) as! EventCell
+        let event = events[indexPath.row] // TODO
+        cell.set(event: event)
+        return cell
     }
 }
