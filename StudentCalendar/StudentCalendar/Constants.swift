@@ -9,25 +9,14 @@
 import UIKit
 
 enum SubjectColor: String {
-    case gray = "Gray"
-    case red = "Red"
-    case orange = "Orange"
-    case yellow = "Yellow"
-    case green = "Green"
-    case blue = "Blue"
-    case purple = "Purple"
-    case pink = "Pink"
-}
-
-enum DisplayColor {
-    static let gray = UIColor.systemGray
-    static let red = UIColor.systemRed
-    static let orange = UIColor.systemOrange
-    static let yellow = UIColor.systemYellow
-    static let green = UIColor.systemGreen
-    static let blue = UIColor.systemBlue
-    static let purple = UIColor.systemPurple
-    static let pink = UIColor.systemPink
+    case gray = "systemGray"
+    case red = "systemRed"
+    case orange = "systemOrange"
+    case yellow = "systemYellow"
+    case green = "systemGreen"
+    case blue = "systemBlue"
+    case purple = "systemPurple"
+    case pink = "systemPink"
 }
 
 enum AssignmentType {
