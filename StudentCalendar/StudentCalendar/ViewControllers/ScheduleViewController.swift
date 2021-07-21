@@ -22,7 +22,6 @@ class ScheduleViewController: UIViewController {
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
     
     func configureViewController() {

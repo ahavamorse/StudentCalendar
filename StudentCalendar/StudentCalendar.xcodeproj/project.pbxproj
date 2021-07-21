@@ -22,6 +22,7 @@
 		0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */; };
 		0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */; };
 		0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */; };
+		0C600EE126A8C35600CFEEBA /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EE026A8C35600CFEEBA /* SubjectsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0C600EE026A8C35600CFEEBA /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
 				0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */,
+				0C600EE026A8C35600CFEEBA /* SubjectsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */,
 				0C600ECA26A885EC00CFEEBA /* ScheduleViewController.swift in Sources */,
 				0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */,
+				0C600EE126A8C35600CFEEBA /* SubjectsViewController.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
 				0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */,
 				0C600ECE26A8884300CFEEBA /* Class.swift in Sources */,
