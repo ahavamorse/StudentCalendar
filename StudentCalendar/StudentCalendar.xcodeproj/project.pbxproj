@@ -16,6 +16,7 @@
 		0C600EBC26A8763B00CFEEBA /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EBB26A8763B00CFEEBA /* Subject.swift */; };
 		0C600EBF26A8770D00CFEEBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EBE26A8770D00CFEEBA /* Constants.swift */; };
 		0C600EC126A879FB00CFEEBA /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EC026A879FB00CFEEBA /* Assignment.swift */; };
+		0C600EC526A87EBD00CFEEBA /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EC426A87EBD00CFEEBA /* Assessment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0C600EBB26A8763B00CFEEBA /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		0C600EBE26A8770D00CFEEBA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C600EC026A879FB00CFEEBA /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		0C600EC426A87EBD00CFEEBA /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				0C600EBB26A8763B00CFEEBA /* Subject.swift */,
 				0C600EC026A879FB00CFEEBA /* Assignment.swift */,
+				0C600EC426A87EBD00CFEEBA /* Assessment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				0C600EAB26A8745000CFEEBA /* ViewController.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
 				0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */,
+				0C600EC526A87EBD00CFEEBA /* Assessment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
