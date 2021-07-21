@@ -9,6 +9,9 @@
 import UIKit
 
 class SubjectsViewController: UIViewController {
+    
+    let tableView = UITableView()
+    var subjects: [Subject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
