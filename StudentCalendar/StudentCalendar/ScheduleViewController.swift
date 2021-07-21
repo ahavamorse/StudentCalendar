@@ -9,8 +9,14 @@
 import UIKit
 
 class ScheduleViewController: UIViewController {
-
+    
     let tableView = UITableView()
     var events: [Event] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViewController()
+        configureTableView()
+    }
     
 }
