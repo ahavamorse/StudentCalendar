@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [createScheduleViewController(), createSubjectsViewController()]
+        viewControllers = [createScheduleViewController(), createAssignmentsViewController(), createClassesViewController(), createAssessmentsViewController()]
     }
     
     func createScheduleViewController() -> UINavigationController {
@@ -22,10 +22,24 @@ class TabBarViewController: UITabBarController {
         return UINavigationController(rootViewController: viewController)
     }
     
-    func createSubjectsViewController() -> UINavigationController {
+    func createAssignmentsViewController() -> UINavigationController {
         let viewController = UIViewController()
-        viewController.title = "Subjects"
-        viewController.tabBarItem = UITabBarItem(title: "Subjects", image: UIImage(systemName: "list.bullet"), tag: 1)
+        viewController.title = "Tasks"
+        viewController.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "list.bullet"), tag: 1)
+        return UINavigationController(rootViewController: viewController)
+    }
+    
+    func createClassesViewController() -> UINavigationController {
+        let viewController = UIViewController()
+        viewController.title = "Classes"
+        viewController.tabBarItem = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock.fill"), tag: 2)
+        return UINavigationController(rootViewController: viewController)
+    }
+    
+    func createAssessmentsViewController() -> UINavigationController {
+        let viewController = UIViewController()
+        viewController.title = "Tests"
+        viewController.tabBarItem = UITabBarItem(title: "Tests", image: UIImage(systemName: "book.fill"), tag: 3)
         return UINavigationController(rootViewController: viewController)
     }
 }
