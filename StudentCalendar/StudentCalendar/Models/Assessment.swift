@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Assesment {
+struct Assesment: Event {
     var title: String
-    var date: Date
+    var date: Date  // start time
+    var endTime: Date?
     var subject: Subject
     var pointValue: Int
     var score: Int

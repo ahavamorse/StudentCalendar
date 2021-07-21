@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Assignment {
+struct Assignment: Event {
     var title: String
-    var dueDate: Date
+    var date: Date  // due date
     var subject: Subject
     var type: AssignmentType
     var pointValue: Int
