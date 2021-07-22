@@ -10,13 +10,16 @@ import Foundation
 
 struct Assignment: Event, Equatable {
     var title: String
-    var date: Date  // due date
     var subject: Subject
     var type: AssignmentType
     var pointValue: Int
     var score: Int?
     var instructions: String
     var status: AssignmentStatus
+    
+    var date: Date  // due date
+    var dayString: String { get { return date.convertToDayMonthDayFormat() } }
+    var timeString: String { get { return date.convertToHourMinuteFormat() } }
     
     static func == (lhs: Assignment, rhs: Assignment) -> Bool {
         if lhs.title == rhs.title,

@@ -10,14 +10,18 @@ import Foundation
 
 struct Class: Event, Equatable {
     var title: String
-    var date: Date  // start time
-    var endTime: Date
     var subject: Subject
+    
+    var date: Date  // start time
+    var endDate: Date
+    var dayString: String { get { return date.convertToDayMonthDayFormat() } }
+    var startTimeString: String { get { return date.convertToHourMinuteFormat() } }
+    var endTimeString: String { get { return endDate.convertToHourMinuteFormat() } }
     
     static func == (lhs: Class, rhs: Class) -> Bool {
         if lhs.title == rhs.title,
             lhs.date == rhs.date,
-            lhs.endTime == rhs.endTime,
+            lhs.endDate == rhs.endDate,
             lhs.subject.title == rhs.subject.title {
             return true
         } else {

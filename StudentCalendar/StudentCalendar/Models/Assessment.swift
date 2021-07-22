@@ -10,18 +10,22 @@ import Foundation
 
 struct Assessment: Event, Equatable {
     var title: String
-    var date: Date  // start time
-    var endTime: Date?
     var subject: Subject
     var pointValue: Int
     var score: Int
     var notes: String
     var type: AssesmentType
     
+    var date: Date  // start time
+    var endDate: Date?
+    var dayString: String { get { return date.convertToDayMonthDayFormat() } }
+    var startTimeString: String { get { return date.convertToHourMinuteFormat() } }
+    var endTimeString: String? { get { return endDate?.convertToHourMinuteFormat() } }
+    
     static func == (lhs: Assessment, rhs: Assessment) -> Bool {
         if lhs.title == rhs.title,
             lhs.date == rhs.date,
-            lhs.endTime == rhs.endTime,
+            lhs.endDate == rhs.endDate,
             lhs.subject.title == rhs.subject.title,
             lhs.type == rhs.type,
             lhs.pointValue == rhs.pointValue {
