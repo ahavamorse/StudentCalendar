@@ -11,6 +11,7 @@ import Foundation
 class AssignmentController {
     
     private var assignments: [Date: [Assignment]] = [:]
+    weak var delegate: EventController?
     
     init(assignments: [Assignment] = []) {
         add(assignments)

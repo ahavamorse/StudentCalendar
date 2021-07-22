@@ -11,6 +11,7 @@ import Foundation
 class ClassController {
     
     private var classes: [Date: [Class]] = [:]
+    weak var delegate: EventController?
     
     init(classes: [Class] = []) {
         add(classes)

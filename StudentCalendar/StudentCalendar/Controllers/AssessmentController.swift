@@ -11,6 +11,7 @@ import Foundation
 class AssessmentController {
     
     private var assessments: [Date: [Assessment]] = [:]
+    weak var delegate: EventController?
     
     init(assessments: [Assessment] = []) {
         add(assessments)
@@ -39,7 +40,7 @@ class AssessmentController {
         }
     }
     
-    func getClasses() -> [Assessment] {
+    func getAssessments() -> [Assessment] {
         // return assessments in sorted order
         let sortedDates = assessments.keys.sorted()
         var sortedAssessments: [Assessment] = []
