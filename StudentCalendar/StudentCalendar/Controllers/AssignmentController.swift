@@ -19,7 +19,14 @@ class AssignmentController {
     }
     
     private func sortAssignments() {
-        // todo put assignments in order by date starting with soonest
+        // todo put assignments in dictrionary by date
+        for assignment in allAssignments {
+            if assignments[assignment.date] == nil {
+                assignments[assignment.date] = [assignment]
+            } else {
+                assignments[assignment.date]?.append(assignment)
+            }
+        }
     }
     
     func add(assignment: Assignment) {
