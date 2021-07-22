@@ -17,7 +17,7 @@ class ClassController {
     }
     
     func add(_ newClasses: [Class]) {
-        // put assignments in dictrionary by date
+        // put classes in dictrionary by date
         for newClass in newClasses {
             if classes[newClass.date] == nil {
                 classes[newClass.date] = [newClass]
@@ -28,7 +28,7 @@ class ClassController {
     }
     
     func remove(_ oldClass: Class) {
-        // remove assignment from list
+        // remove class from list
         let date = oldClass.date
         if classes[date]?.count == 1 {
             classes.removeValue(forKey: date)
@@ -40,7 +40,7 @@ class ClassController {
     }
     
     func getClasses() -> [Class] {
-        // return assignments in sorted order
+        // return classes in sorted order
         let sortedDates = classes.keys.sorted()
         var sortedClasses: [Class] = []
         for key in sortedDates {

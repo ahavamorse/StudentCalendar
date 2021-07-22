@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Assesment: Event {
+struct Assessment: Event {
     var title: String
     var date: Date  // start time
     var endTime: Date?
