@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Assessment: Event {
+struct Assessment: Event, Equatable {
     var title: String
     var date: Date  // start time
     var endTime: Date?
@@ -17,4 +17,17 @@ struct Assessment: Event {
     var score: Int
     var notes: String
     var type: AssesmentType
+    
+    static func == (lhs: Assessment, rhs: Assessment) -> Bool {
+        if lhs.title == rhs.title,
+            lhs.date == rhs.date,
+            lhs.endTime == rhs.endTime,
+            lhs.subject.title == rhs.subject.title,
+            lhs.type == rhs.type,
+            lhs.pointValue == rhs.pointValue {
+            return true
+        } else {
+            return false
+        }
+    }
 }
