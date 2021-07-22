@@ -13,11 +13,11 @@ class AssignmentController {
     private var assignments: [Date: [Assignment]] = [:]
     
     init(assignments: [Assignment] = []) {
-        self.sortAssignments(assignments)
+        add(assignments)
     }
     
-    private func sortAssignments(_ newAssignments: [Assignment]) {
-        // todo put assignments in dictrionary by date
+    func add(_ newAssignments: [Assignment]) {
+        // put assignments in dictrionary by date
         for assignment in newAssignments {
             if assignments[assignment.date] == nil {
                 assignments[assignment.date] = [assignment]
@@ -25,11 +25,6 @@ class AssignmentController {
                 assignments[assignment.date]?.append(assignment)
             }
         }
-    }
-    
-    func add(assignment: Assignment) {
-        // put new assignment in the correct spot
-        sortAssignments([assignment])
     }
     
     func remove(assignment: Assignment) {
@@ -53,5 +48,4 @@ class AssignmentController {
         }
         return sortedAssignments
     }
-    
 }
