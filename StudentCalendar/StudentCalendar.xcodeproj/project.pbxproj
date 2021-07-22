@@ -12,6 +12,8 @@
 		0C10AC5C26A9CC3C00C63610 /* AssessmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC5B26A9CC3C00C63610 /* AssessmentController.swift */; };
 		0C10AC5E26A9DE7200C63610 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC5D26A9DE7200C63610 /* Date+Ext.swift */; };
 		0C10AC6026A9E0AF00C63610 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC5F26A9E0AF00C63610 /* EventController.swift */; };
+		0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */; };
+		0C10AC6426A9ED6A00C63610 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */; };
 		0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA626A8745000CFEEBA /* AppDelegate.swift */; };
 		0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA826A8745000CFEEBA /* SceneDelegate.swift */; };
 		0C600EB026A8745400CFEEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAF26A8745400CFEEBA /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		0C10AC5B26A9CC3C00C63610 /* AssessmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentController.swift; sourceTree = "<group>"; };
 		0C10AC5D26A9DE7200C63610 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		0C10AC5F26A9E0AF00C63610 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0C600EA326A8745000CFEEBA /* StudentCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C600EA626A8745000CFEEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C600EA826A8745000CFEEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */,
 				0C10AC5D26A9DE7200C63610 /* Date+Ext.swift */,
+				0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */,
+				0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
+				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
 				0C10AC6026A9E0AF00C63610 /* EventController.swift in Sources */,
 				0C10AC5E26A9DE7200C63610 /* Date+Ext.swift in Sources */,
@@ -246,6 +253,7 @@
 				0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */,
 				0C600ECA26A885EC00CFEEBA /* ScheduleViewController.swift in Sources */,
 				0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */,
+				0C10AC6426A9ED6A00C63610 /* UIView+Ext.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,
 				0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */,
 				0C600ECE26A8884300CFEEBA /* Class.swift in Sources */,
