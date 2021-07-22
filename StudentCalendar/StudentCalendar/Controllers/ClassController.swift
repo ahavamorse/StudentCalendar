@@ -26,6 +26,7 @@ class ClassController {
                 classes[newClass.date]?.append(newClass)
             }
         }
+        delegate?.add(newClasses)
     }
     
     func remove(_ oldClass: Class) {
@@ -38,6 +39,7 @@ class ClassController {
                 classes[date]?.remove(at: index)
             }
         }
+        delegate?.redo()
     }
     
     func getClasses() -> [Class] {

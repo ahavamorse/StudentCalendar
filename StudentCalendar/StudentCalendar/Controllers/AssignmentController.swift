@@ -26,6 +26,7 @@ class AssignmentController {
                 assignments[assignment.date]?.append(assignment)
             }
         }
+        delegate?.add(newAssignments)
     }
     
     func remove(assignment: Assignment) {
@@ -38,6 +39,7 @@ class AssignmentController {
                 assignments[date]?.remove(at: index)
             }
         }
+        delegate?.redo()
     }
     
     func getAssignments() -> [Assignment] {

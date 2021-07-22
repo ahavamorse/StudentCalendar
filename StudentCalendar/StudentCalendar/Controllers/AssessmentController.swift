@@ -26,6 +26,7 @@ class AssessmentController {
                 assessments[newAssessment.date]?.append(newAssessment)
             }
         }
+        delegate?.add(newAssessments)
     }
     
     func remove(_ oldAssessment: Assessment) {
@@ -38,6 +39,7 @@ class AssessmentController {
                 assessments[date]?.remove(at: index)
             }
         }
+        delegate?.redo()
     }
     
     func getAssessments() -> [Assessment] {
