@@ -9,6 +9,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    
+    let assignmentController = AssignmentController()
+    let classController = ClassController()
+    let assessmentController = AssessmentController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,10 @@ class TabBarViewController: UITabBarController {
     
     func createScheduleViewController() -> UINavigationController {
         let viewController = ScheduleViewController()
+        viewController.assignmentController = assignmentController
+        viewController.classController = classController
+        viewController.assessmentController = assessmentController
+        
         viewController.title = "Schedule"
         viewController.tabBarItem = UITabBarItem(title: "Schedule", image: UIImage(systemName: "calendar"), tag: 0)
         return UINavigationController(rootViewController: viewController)

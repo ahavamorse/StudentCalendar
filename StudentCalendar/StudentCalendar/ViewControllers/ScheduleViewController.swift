@@ -11,7 +11,10 @@ import UIKit
 class ScheduleViewController: UIViewController {
     
     let tableView = UITableView()
-    var events: [Event] = []
+    var events: [Event] = []  // maybe change type?
+    var assignmentController: AssignmentController?
+    var classController: ClassController?
+    var assessmentController: AssessmentController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
