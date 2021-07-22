@@ -22,6 +22,7 @@ class ScheduleViewController: UIViewController {
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Subjects", style: .plain, target: self, action: #selector(showSubjects))
     }
     
     func configureViewController() {
@@ -38,6 +39,10 @@ class ScheduleViewController: UIViewController {
         tableView.removeExcessCells()
         
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
+    }
+    
+    @objc func showSubjects() {
+        // todo
     }
     
     func updateUI() {
