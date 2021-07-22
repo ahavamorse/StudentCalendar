@@ -110,8 +110,8 @@
 			children = (
 				0C600EBB26A8763B00CFEEBA /* Subject.swift */,
 				0C600EC026A879FB00CFEEBA /* Assignment.swift */,
-				0C600EC426A87EBD00CFEEBA /* Assessment.swift */,
 				0C600ECD26A8884300CFEEBA /* Class.swift */,
+				0C600EC426A87EBD00CFEEBA /* Assessment.swift */,
 				0C600ECB26A8873E00CFEEBA /* Event.swift */,
 			);
 			path = Models;
