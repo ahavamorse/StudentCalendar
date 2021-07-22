@@ -10,11 +10,9 @@ import Foundation
 
 class AssignmentController {
     
-    private var allAssignments: [Assignment]
     private var assignments: [Date: [Assignment]] = [:]
     
     init(assignments: [Assignment] = []) {
-        self.allAssignments = assignments
         self.sortAssignments(assignments)
     }
     
@@ -31,16 +29,22 @@ class AssignmentController {
     
     func add(assignment: Assignment) {
         // put new assignment in the correct spot
-        allAssignments.append(assignment)
         sortAssignments([assignment])
     }
     
     func remove(assignment: Assignment) {
         // remove assignment from list
+        
     }
     
-    func getAssignments() {
+    func getAssignments() -> [Assignment] {
         // return assignments in sorted order
+        let sortedDates = assignments.keys.sorted()
+        var sortedAssignments: [Assignment] = []
+        for key in sortedDates {
+            sortedAssignments += assignments[key] ?? []
+        }
+        return sortedAssignments
     }
     
 }
