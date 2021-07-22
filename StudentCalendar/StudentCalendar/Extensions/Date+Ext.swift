@@ -18,7 +18,7 @@ extension Date {
     
     func convertToHourMinuteFormat() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm"
+        dateFormatter.dateFormat = "h:mm a"
         return dateFormatter.string(from: self)
     }
 }
