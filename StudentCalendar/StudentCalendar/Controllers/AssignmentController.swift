@@ -34,7 +34,14 @@ class AssignmentController {
     
     func remove(assignment: Assignment) {
         // remove assignment from list
-        
+        let date = assignment.date
+        if assignments[date]?.count == 1 {
+            assignments.removeValue(forKey: date)
+        } else {
+            if let index = assignments[date]?.firstIndex(of: assignment) {
+                assignments[date]?.remove(at: index)
+            }
+        }
     }
     
     func getAssignments() -> [Assignment] {
