@@ -19,10 +19,10 @@ class TitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(textAlignment: NSTextAlignment) {
+    convenience init(textAlignment: NSTextAlignment = .left, font: UIFont) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.preferredFont(forTextStyle: .title1)
+        self.font = font
     }
     
     private func configure() {
