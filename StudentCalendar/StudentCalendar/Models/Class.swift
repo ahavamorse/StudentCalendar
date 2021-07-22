@@ -15,7 +15,7 @@ struct Class: Event, Equatable {
     var date: Date  // start time
     var endDate: Date
     var dayString: String { get { return date.convertToDayMonthDayFormat() } }
-    var startTimeString: String { get { return date.convertToHourMinuteFormat() } }
+    var timeString: String { get { return date.convertToHourMinuteFormat() } }
     var endTimeString: String { get { return endDate.convertToHourMinuteFormat() } }
     
     static func == (lhs: Class, rhs: Class) -> Bool {

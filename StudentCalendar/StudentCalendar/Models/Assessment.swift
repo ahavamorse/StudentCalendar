@@ -12,14 +12,14 @@ struct Assessment: Event, Equatable {
     var title: String
     var subject: Subject
     var pointValue: Int
-    var score: Int
+    var score: Int?
     var notes: String
     var type: AssesmentType
     
     var date: Date  // start time
     var endDate: Date?
     var dayString: String { get { return date.convertToDayMonthDayFormat() } }
-    var startTimeString: String { get { return date.convertToHourMinuteFormat() } }
+    var timeString: String { get { return date.convertToHourMinuteFormat() } }
     var endTimeString: String? { get { return endDate?.convertToHourMinuteFormat() } }
     
     static func == (lhs: Assessment, rhs: Assessment) -> Bool {
