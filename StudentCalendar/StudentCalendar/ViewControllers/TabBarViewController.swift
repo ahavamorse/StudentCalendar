@@ -21,6 +21,11 @@ class TabBarViewController: UITabBarController {
                                           classController: classController,
                                           assessmentController: assessmentController)
         
+        let math = Subject(title: "Math", instructor: "My Father", startDate: Date(), endDate: Date(), colorName: "Red", color: SubjectColor.red)
+        assignmentController.add([Assignment(title: "Homeword", subject: math, type: .homework, pointValue: 10, instructions: "None", status: AssignmentStatus.assigned, date: Date().addingTimeInterval(1000))])
+        classController.add([Class(title: "First Class", subject: math, date: Date(), endDate: Date())])
+        assessmentController.add([Assessment(title: "Chapter 1 Test", subject: math, pointValue: 100, notes: "Study well!", type: AssesmentType.chapterTest, date: Date().addingTimeInterval(5000), endDate: Date())])
+        
         viewControllers = [createScheduleViewController(),
                            createAssignmentsViewController(),
                            createClassesViewController(),
@@ -37,7 +42,7 @@ class TabBarViewController: UITabBarController {
     
     func createAssignmentsViewController() -> UINavigationController {
         let viewController = UIViewController()
-        viewController.assignmentController = assignmentController
+//        viewController.assignmentController = assignmentController
         viewController.title = "Tasks"
         viewController.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "list.bullet"), tag: 1)
         return UINavigationController(rootViewController: viewController)
@@ -45,7 +50,7 @@ class TabBarViewController: UITabBarController {
     
     func createClassesViewController() -> UINavigationController {
         let viewController = UIViewController()
-        viewController.classController = classController
+//        viewController.classController = classController
         viewController.title = "Classes"
         viewController.tabBarItem = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock"), tag: 2)
         return UINavigationController(rootViewController: viewController)
@@ -53,7 +58,7 @@ class TabBarViewController: UITabBarController {
     
     func createAssessmentsViewController() -> UINavigationController {
         let viewController = UIViewController()
-        viewController.assessmentController = assessmentController
+//        viewController.assessmentController = assessmentController
         viewController.title = "Tests"
         viewController.tabBarItem = UITabBarItem(title: "Tests", image: UIImage(systemName: "book"), tag: 3)
         return UINavigationController(rootViewController: viewController)

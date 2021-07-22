@@ -11,10 +11,7 @@ import UIKit
 class ScheduleViewController: UIViewController {
     
     let tableView = UITableView()
-    var events: [Event] = []  // maybe change type?
-    var assignmentController: AssignmentController?
-    var classController: ClassController?
-    var assessmentController: AssessmentController?
+    var eventController: EventController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +46,7 @@ class ScheduleViewController: UIViewController {
     }
     
     func updateUI() {
-        if events.isEmpty {
+        if eventController.getEvents().isEmpty {
             // todo: show empty state
         } else {
             DispatchQueue.main.async {
@@ -62,13 +59,13 @@ class ScheduleViewController: UIViewController {
 
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return eventController.getEvents().count
         // TODO: sort events by day then create sections for each day and rows for each event that day
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.reuseID) as! EventTableViewCell
-        let event = events[indexPath.row] // TODO
+        let event = eventController.getEvents()[indexPath.row] // TODO
         cell.set(event: event)
         return cell
     }
