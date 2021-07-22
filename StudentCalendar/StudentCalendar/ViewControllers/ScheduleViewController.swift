@@ -12,12 +12,14 @@ class ScheduleViewController: UIViewController {
     
     let tableView = UITableView()
     var eventController: EventController!
+    var eventsByDay: [[Event]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
         configureTableView()
+        eventsByDay = eventController.getEventsByDay()
     }
     
     func configureNavigationBar() {
@@ -58,14 +60,22 @@ class ScheduleViewController: UIViewController {
 }
 
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return eventsByDay.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return eventsByDay[section][0].dayString
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventController.getEvents().count
-        // TODO: sort events by day then create sections for each day and rows for each event that day
+        return eventsByDay[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.reuseID) as! EventTableViewCell
-        let event = eventController.getEvents()[indexPath.row] // TODO
+        let event = eventsByDay[indexPath.section][indexPath.row]
         cell.set(event: event)
         return cell
     }

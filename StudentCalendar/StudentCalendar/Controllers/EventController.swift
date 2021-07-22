@@ -55,4 +55,19 @@ class EventController {
         }
         return sortedEvents
     }
+    
+    func getEventsByDay() -> [[Event]] {
+        var daysOfEvents: [[Event]] = []
+        var currentDay = ""
+        var currentIndex = -1
+        for event in getEvents() {
+            if event.dayString != currentDay {
+                daysOfEvents.append([])
+                currentIndex += 1
+                currentDay = event.dayString
+            }
+            daysOfEvents[currentIndex].append(event)
+        }
+        return daysOfEvents
+    }
 }
