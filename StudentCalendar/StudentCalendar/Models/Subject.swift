@@ -14,5 +14,9 @@ struct Subject {
 //    var startDate: Date
 //    var endDate: Date
     var colorName: String
-    var color: UIColor
+    var color: UIColor {
+        get {
+            return SubjectColor.colors[colorName]!
+        }
+    }
 }

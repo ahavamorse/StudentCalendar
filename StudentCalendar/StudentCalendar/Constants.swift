@@ -9,45 +9,44 @@
 import UIKit
 
 enum SubjectColor {
-    static let names = ["gray", "red", "orange", "yellow", "green", "blue", "purple", "pink"]
-    
-    static let gray = UIColor.systemGray
-    static let red = UIColor.systemRed
-    static let orange = UIColor.systemOrange
-    static let yellow = UIColor.systemYellow
-    static let green = UIColor.systemGreen
-    static let blue = UIColor.systemBlue
-    static let purple = UIColor.systemPurple
-    static let pink = UIColor.systemPink
+    static let colors: [String: UIColor] =
+        [ "Gray" : UIColor.systemGray,
+          "Red": UIColor.systemRed,
+          "Orange": UIColor.systemOrange,
+          "Yellow": UIColor.systemYellow,
+          "Green": UIColor.systemGreen,
+          "Blue": UIColor.systemBlue,
+          "Purple": UIColor.systemPurple,
+          "Pink": UIColor.systemPink ]
 }
 
-enum AssignmentType {
-    case homework
-    case project
-    case review
-    case other
-}
+//enum AssignmentType {
+//    case homework
+//    case project
+//    case review
+//    case other
+//}
 
 enum AssignmentStatus {
-    case unavailable
-    case available
-    case assigned
+//    case unavailable
+//    case available
+//    case assigned
     
     case notStarted
-    case inProgress
+//    case inProgress
     case completed
-    case doubleChecked
-    case submitted
-    case graded
+//    case doubleChecked
+//    case submitted
+//    case graded
     
-    case pastDue
-    case submittedLate
+//    case pastDue
+//    case submittedLate
 }
 
-enum AssesmentType {
-    case quiz
-    case chapterTest
-    case midtermExam
-    case finalExam
-    case other
-}
+//enum AssesmentType {
+//    case quiz
+//    case chapterTest
+//    case midtermExam
+//    case finalExam
+//    case other
+//}

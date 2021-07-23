@@ -15,7 +15,7 @@ struct Assignment: Event, Equatable {
 //    var pointValue: Int
 //    var score: Int?
 //    var instructions: String
-//    var status: AssignmentStatus
+    var status: AssignmentStatus
     
     var date: Date  // due date
     var dayString: String { get { return date.convertToDayMonthDayFormat() } }
