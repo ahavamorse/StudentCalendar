@@ -11,7 +11,8 @@ import Foundation
 class ClassController {
     
     private var classes: [Date: [Class]] = [:]
-    weak var delegate: EventController?
+    var delegate: EventController?
+    var subjectController: SubjectController?
     
     init(classes: [Class] = []) {
         add(classes)
@@ -27,6 +28,7 @@ class ClassController {
             }
         }
         delegate?.add(newClasses)
+        subjectController?.add(newClasses)
     }
     
     func remove(_ oldClass: Class) {
@@ -40,6 +42,7 @@ class ClassController {
             }
         }
         delegate?.redo()
+        subjectController?.remove(oldClass)
     }
     
     func getClasses() -> [Class] {

@@ -11,7 +11,8 @@ import Foundation
 class AssessmentController {
     
     private var assessments: [Date: [Assessment]] = [:]
-    weak var delegate: EventController?
+    var delegate: EventController?
+    var subjectController: SubjectController?
     
     init(assessments: [Assessment] = []) {
         add(assessments)
@@ -27,6 +28,7 @@ class AssessmentController {
             }
         }
         delegate?.add(newAssessments)
+        subjectController?.add(newAssessments)
     }
     
     func remove(_ oldAssessment: Assessment) {
@@ -40,6 +42,7 @@ class AssessmentController {
             }
         }
         delegate?.redo()
+        subjectController?.remove(oldAssessment)
     }
     
     func getAssessments() -> [Assessment] {

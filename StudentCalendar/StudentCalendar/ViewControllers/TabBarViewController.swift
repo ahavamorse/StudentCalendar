@@ -22,6 +22,10 @@ class TabBarViewController: UITabBarController {
                                           classController: classController,
                                           assessmentController: assessmentController)
         
+        assignmentController.subjectController = subjectController
+        classController.subjectController = subjectController
+        assessmentController.subjectController = subjectController
+        
         let math = Subject(title: "Math", colorName: "Blue")
         let english = Subject(title: "English", colorName: "Red")
         

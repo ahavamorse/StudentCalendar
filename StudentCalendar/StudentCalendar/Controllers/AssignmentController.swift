@@ -11,7 +11,8 @@ import Foundation
 class AssignmentController {
     
     private var assignments: [Date: [Assignment]] = [:]
-    weak var delegate: EventController?
+    var delegate: EventController?
+    var subjectController: SubjectController?
     
     init(assignments: [Assignment] = []) {
         add(assignments)
@@ -27,19 +28,21 @@ class AssignmentController {
             }
         }
         delegate?.add(newAssignments)
+        subjectController?.add(newAssignments)
     }
     
-    func remove(assignment: Assignment) {
+    func remove(oldAssignment: Assignment) {
         // remove assignment from list
-        let date = assignment.date
+        let date = oldAssignment.date
         if assignments[date]?.count == 1 {
             assignments.removeValue(forKey: date)
         } else {
-            if let index = assignments[date]?.firstIndex(of: assignment) {
+            if let index = assignments[date]?.firstIndex(of: oldAssignment) {
                 assignments[date]?.remove(at: index)
             }
         }
         delegate?.redo()
+        subjectController?.remove(oldAssignment)
     }
     
     func getAssignments() -> [Assignment] {

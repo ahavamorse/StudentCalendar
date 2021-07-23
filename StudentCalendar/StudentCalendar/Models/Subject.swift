@@ -13,6 +13,7 @@ struct Subject {
 //    var instructor: String
 //    var startDate: Date
 //    var endDate: Date
+    var events: [Event] = []
     var colorName: String
     var color: UIColor {
         get {
