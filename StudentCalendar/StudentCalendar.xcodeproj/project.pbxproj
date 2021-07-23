@@ -16,6 +16,7 @@
 		0C10AC6426A9ED6A00C63610 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */; };
 		0C10AC6626AB1CAE00C63610 /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */; };
 		0C10AC6826AB244700C63610 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6726AB244700C63610 /* TaskTableViewCell.swift */; };
+		0C10AC6C26AB2A0A00C63610 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6B26AB2A0A00C63610 /* CheckboxButton.swift */; };
 		0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA626A8745000CFEEBA /* AppDelegate.swift */; };
 		0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA826A8745000CFEEBA /* SceneDelegate.swift */; };
 		0C600EB026A8745400CFEEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAF26A8745400CFEEBA /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
 		0C10AC6726AB244700C63610 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		0C10AC6B26AB2A0A00C63610 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		0C600EA326A8745000CFEEBA /* StudentCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C600EA626A8745000CFEEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C600EA826A8745000CFEEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,21 @@
 				0C10AC5F26A9E0AF00C63610 /* EventController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C10AC6926AB29CE00C63610 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0C10AC6A26AB29DE00C63610 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0C10AC6B26AB2A0A00C63610 /* CheckboxButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		0C600E9A26A8745000CFEEBA = {
@@ -143,6 +160,8 @@
 		0C600ED026A88D7A00CFEEBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C10AC6A26AB29DE00C63610 /* Buttons */,
+				0C10AC6926AB29CE00C63610 /* Images */,
 				0C600ED926A8AEDE00CFEEBA /* Labels */,
 				0C600ED126A88D8800CFEEBA /* Cells */,
 			);
@@ -269,6 +288,7 @@
 				0C600ED326A88DCA00CFEEBA /* EventTableViewCell.swift in Sources */,
 				0C600EC526A87EBD00CFEEBA /* Assessment.swift in Sources */,
 				0C10AC5C26A9CC3C00C63610 /* AssessmentController.swift in Sources */,
+				0C10AC6C26AB2A0A00C63610 /* CheckboxButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
