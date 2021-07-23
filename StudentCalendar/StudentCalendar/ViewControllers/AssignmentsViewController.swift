@@ -19,6 +19,8 @@ class AssignmentsViewController: UIViewController {
         configureNavigationBar()
         configureViewController()
         configureTableView()
+        assignments = assignmentController.getAssignments()
+        updateUI()
     }
     
     func configureNavigationBar() {
@@ -44,5 +46,16 @@ class AssignmentsViewController: UIViewController {
     
     @objc func addAssignment() {
         
+    }
+    
+    func updateUI() {
+        if assignments.isEmpty {
+            // todo: show empty state
+        } else {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
     }
 }
