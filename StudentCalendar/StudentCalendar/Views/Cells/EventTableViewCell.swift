@@ -35,7 +35,7 @@ class EventTableViewCell: UITableViewCell {
         addSubviews(subjectColorImageView, titleLabel, timeLabel)
         subjectColorImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        accessoryType = .disclosureIndicator
+//        accessoryType = .disclosureIndicator
         let padding: CGFloat = 12 // customize
         
         NSLayoutConstraint.activate([

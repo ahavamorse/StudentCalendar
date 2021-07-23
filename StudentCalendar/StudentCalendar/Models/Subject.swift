@@ -10,9 +10,9 @@ import UIKit
 
 struct Subject {
     var title: String
-    var instructor: String
-    var startDate: Date
-    var endDate: Date
+//    var instructor: String
+//    var startDate: Date
+//    var endDate: Date
     var colorName: String
     var color: UIColor
 }
