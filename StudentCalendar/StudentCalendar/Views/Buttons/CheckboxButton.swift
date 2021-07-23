@@ -18,4 +18,23 @@ class CheckboxButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    convenience init(contentView: UIView, target: Any, action: Selector) {
+        self.init(frame: .zero)
+        self.addTarget(target, action: action, for: .touchUpInside)
+        contentView.isUserInteractionEnabled = true
+        self.isUserInteractionEnabled = true
+    }
+    
+    private func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func check() {
+        setImage(CheckboxImage.checked, for: .normal)
+    }
+    
+    func uncheck() {
+        setImage(CheckboxImage.unchecked, for: .normal)
+    }
 }
