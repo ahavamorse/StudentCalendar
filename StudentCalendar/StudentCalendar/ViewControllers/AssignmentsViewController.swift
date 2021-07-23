@@ -36,12 +36,13 @@ class AssignmentsViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
-        tableView.rowHeight = 60
+        tableView.rowHeight = 85
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.removeExcessCells()
         
-        tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
+        tableView.register(AssignmentTableViewCell.self, forCellReuseIdentifier: AssignmentTableViewCell.reuseID)
     }
     
     @objc func addAssignment() {
@@ -62,10 +63,13 @@ class AssignmentsViewController: UIViewController {
 
 extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return assignments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: AssignmentTableViewCell.reuseID) as! AssignmentTableViewCell
+        let assignment = assignments[indexPath.row]
+        cell.set(assignment: assignment)
+        return cell
     }
 }
