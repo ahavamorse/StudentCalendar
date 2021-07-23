@@ -17,10 +17,19 @@ class AssignmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureViewController()
     }
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAssignment))
+    }
+    
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    @objc func addAssignment() {
+        
     }
 }
