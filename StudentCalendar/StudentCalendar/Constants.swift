@@ -20,6 +20,11 @@ enum SubjectColor {
           "Pink": UIColor.systemPink ]
 }
 
+enum CheckboxImage {
+    static let checked = UIImage(named: "checked")
+    static let unchecked = UIImage(named: "unchecked")
+}
+
 //enum AssignmentType {
 //    case homework
 //    case project
