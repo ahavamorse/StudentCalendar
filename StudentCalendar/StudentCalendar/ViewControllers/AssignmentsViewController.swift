@@ -10,6 +10,10 @@ import UIKit
 
 class AssignmentsViewController: UIViewController {
 
+    let tableView = UITableView()
+    var assignmentController: AssignmentController!
+    var assignments: [Assignment] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
