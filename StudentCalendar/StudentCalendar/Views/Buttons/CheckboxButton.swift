@@ -19,11 +19,9 @@ class CheckboxButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(contentView: UIView, target: Any, action: Selector) {
+    convenience init(target: Any, action: Selector) {
         self.init(frame: .zero)
         self.addTarget(target, action: action, for: .touchUpInside)
-        contentView.isUserInteractionEnabled = true
-        self.isUserInteractionEnabled = true
     }
     
     private func configure() {

@@ -15,8 +15,8 @@
 		0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */; };
 		0C10AC6426A9ED6A00C63610 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */; };
 		0C10AC6626AB1CAE00C63610 /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */; };
-		0C10AC6826AB244700C63610 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6726AB244700C63610 /* TaskTableViewCell.swift */; };
 		0C10AC6C26AB2A0A00C63610 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6B26AB2A0A00C63610 /* CheckboxButton.swift */; };
+		0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10AC6D26AB37EE00C63610 /* AssignmentTableViewCell.swift */; };
 		0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA626A8745000CFEEBA /* AppDelegate.swift */; };
 		0C600EA926A8745000CFEEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EA826A8745000CFEEBA /* SceneDelegate.swift */; };
 		0C600EB026A8745400CFEEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C600EAF26A8745400CFEEBA /* Assets.xcassets */; };
@@ -43,8 +43,8 @@
 		0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		0C10AC6326A9ED6A00C63610 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
-		0C10AC6726AB244700C63610 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		0C10AC6B26AB2A0A00C63610 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		0C10AC6D26AB37EE00C63610 /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		0C600EA326A8745000CFEEBA /* StudentCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C600EA626A8745000CFEEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C600EA826A8745000CFEEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */,
-				0C10AC6726AB244700C63610 /* TaskTableViewCell.swift */,
+				0C10AC6D26AB37EE00C63610 /* AssignmentTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -268,8 +268,8 @@
 			files = (
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
-				0C10AC6826AB244700C63610 /* TaskTableViewCell.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
+				0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */,
 				0C10AC6026A9E0AF00C63610 /* EventController.swift in Sources */,
 				0C10AC5E26A9DE7200C63610 /* Date+Ext.swift in Sources */,
 				0C600EC126A879FB00CFEEBA /* Assignment.swift in Sources */,
