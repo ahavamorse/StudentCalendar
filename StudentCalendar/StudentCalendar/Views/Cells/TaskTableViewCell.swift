@@ -14,5 +14,15 @@ class TaskTableViewCell: UITableViewCell {
     let subjectColorImageView = UIImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let dueDateLabel = SecondaryTitleLabel(font: .preferredFont(forTextStyle: .title2))
-
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
 }
