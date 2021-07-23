@@ -12,6 +12,7 @@ class AssignmentsViewController: UIViewController {
 
     let tableView = UITableView()
     var assignmentController: AssignmentController!
+    var subjectController: SubjectController!
     var assignments: [Assignment] = []
     
     override func viewDidLoad() {

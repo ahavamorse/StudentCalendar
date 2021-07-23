@@ -12,6 +12,7 @@ class ScheduleViewController: UIViewController {
     
     let tableView = UITableView()
     var eventController: EventController!
+    var subjectController: SubjectController!
     var eventsByDay: [[Event]] = []
     
     override func viewDidLoad() {
@@ -20,11 +21,12 @@ class ScheduleViewController: UIViewController {
         configureViewController()
         configureTableView()
         eventsByDay = eventController.getEventsByDay()
+        updateUI()
     }
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Subjects", style: .plain, target: self, action: #selector(showSubjects))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Subjects", style: .plain, target: self, action: #selector(showSubjects))
     }
     
     func configureViewController() {
@@ -38,17 +40,18 @@ class ScheduleViewController: UIViewController {
         tableView.rowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.removeExcessCells()
         
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
     }
     
     @objc func showSubjects() {
-        // todo
+        
     }
     
     func updateUI() {
-        if eventController.getEvents().isEmpty {
+        if eventsByDay.isEmpty {
             // todo: show empty state
         } else {
             DispatchQueue.main.async {
