@@ -11,7 +11,7 @@ import UIKit
 class AssignmentTableViewCell: UITableViewCell {
     
     static let reuseID = "AssignmentTableViewCell"
-    let subjectColorImageView = UIImageView()
+    let subjectColorImageView = SubjectIndicatorImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let dueDateLabel = SecondaryTitleLabel(font: .preferredFont(forTextStyle: .title2))
     lazy var checkboxButton = CheckboxButton(target: self, action: #selector(changeCheckbox))
@@ -29,8 +29,7 @@ class AssignmentTableViewCell: UITableViewCell {
     
     func set(assignment: Assignment) {
         self.assignment = assignment
-        subjectColorImageView.image = UIImage(systemName: "circle.fill")
-        subjectColorImageView.tintColor = assignment.subject.color
+        subjectColorImageView.set(color: assignment.subject.color)
         
         titleLabel.text = "\(assignment.subject.title):  \(assignment.title)"
         dueDateLabel.text = "Due Date:  \(assignment.dayString)"
@@ -43,12 +42,11 @@ class AssignmentTableViewCell: UITableViewCell {
     }
     
     @objc private func changeCheckbox() {
-        
+        // todo
     }
     
     private func configure() {
         addSubviews(subjectColorImageView, titleLabel, dueDateLabel)
-        subjectColorImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(checkboxButton)
         
         let padding: CGFloat = 12

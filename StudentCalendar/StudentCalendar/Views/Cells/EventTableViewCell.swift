@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
     
     static let reuseID = "EventTableViewCell"
-    let subjectColorImageView = UIImageView()
+    let subjectColorImageView = SubjectIndicatorImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let timeLabel = SecondaryTitleLabel(textAlignment: .right, font: .preferredFont(forTextStyle: .title2))
     
@@ -25,15 +25,13 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func set(event: Event) {
-        subjectColorImageView.image = UIImage(systemName: "circle.fill")
-        subjectColorImageView.tintColor = event.subject.color
+        subjectColorImageView.set(color: event.subject.color)
         titleLabel.text = event.title
         timeLabel.text = event.timeString
     }
     
     private func configure() {
         addSubviews(subjectColorImageView, titleLabel, timeLabel)
-        subjectColorImageView.translatesAutoresizingMaskIntoConstraints = false
         
 //        accessoryType = .disclosureIndicator
         let padding: CGFloat = 12
