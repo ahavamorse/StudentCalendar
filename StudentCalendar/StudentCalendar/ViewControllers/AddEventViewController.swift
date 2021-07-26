@@ -29,11 +29,6 @@ class AddEventViewController: UIViewController {
         }
     }
     
-    var assignmentController: AssignmentController?
-    var classController: ClassController?
-    var assessmentController: AssessmentController?
-    var subjects: [Subject] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -57,5 +52,5 @@ class AddEventViewController: UIViewController {
         subjectPickerView.dataSource = self
         dateLabel.text = "Date:" // can change
         datePickerView.datePickerMode = .dateAndTime
-        
+    }
 }
