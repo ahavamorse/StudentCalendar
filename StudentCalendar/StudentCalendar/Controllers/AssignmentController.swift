@@ -10,7 +10,7 @@ import Foundation
 
 class AssignmentController {
     
-    private var assignments: [Date: [Assignment]] = [:]
+    private var assignments: [Date: [Assignment]] = [:] // todo: split into completed and not, then sort by date
     var delegate: EventController?
     var subjectController: SubjectController?
     
@@ -31,18 +31,19 @@ class AssignmentController {
         subjectController?.add(newAssignments)
     }
     
-    func remove(_ oldAssignment: Assignment) {
-        // remove assignment from list
-        let date = oldAssignment.date
-        if assignments[date]?.count == 1 {
-            assignments.removeValue(forKey: date)
-        } else {
-            if let index = assignments[date]?.firstIndex(of: oldAssignment) {
-                assignments[date]?.remove(at: index)
-            }
+    func changeStatus(_ assignment: Assignment) {
+        if let index = findIndexOf(assignment) {
+            assignments[assignment.date]?[index].status = assignment.status
         }
-        delegate?.redo()
-        subjectController?.remove(oldAssignment)
+    }
+    
+    func remove(_ assignment: Assignment) {
+        // remove assignment from list
+        if let index = findIndexOf(assignment) {
+            assignments[assignment.date]?.remove(at: index)
+            delegate?.redo()
+            subjectController?.remove(assignment)
+        }
     }
     
     func remove(_ event: Event) {
@@ -64,6 +65,18 @@ class AssignmentController {
         } else {
             return false
         }
+    }
+    
+    func findIndexOf(_ assignment: Assignment) -> Int? {
+        let date = assignment.date
+        if assignments[date]?.count == 1 {
+            return 0
+        } else {
+            if let index = assignments[date]?.firstIndex(of: assignment) {
+                return index
+            }
+        }
+        return nil
     }
     
     func getAssignments() -> [Assignment] {

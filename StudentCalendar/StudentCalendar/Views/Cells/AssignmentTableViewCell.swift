@@ -17,6 +17,7 @@ class AssignmentTableViewCell: UITableViewCell {
     lazy var checkboxButton = CheckboxButton(target: self, action: #selector(changeCheckbox))
     
     var assignment: Assignment?
+    weak var delegate: AssignmentsViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,14 +36,22 @@ class AssignmentTableViewCell: UITableViewCell {
         dueDateLabel.text = "Due Date:  \(assignment.dayString)"
         
         if assignment.status == .completed {
-            checkboxButton.setImage(CheckboxImage.checked, for: .normal)
+            checkboxButton.check()
         } else {
-            checkboxButton.setImage(CheckboxImage.unchecked, for: .normal)
+            checkboxButton.uncheck()
         }
     }
     
     @objc private func changeCheckbox() {
-        // todo
+        if assignment?.status == .completed {
+            assignment?.status = .notStarted
+            checkboxButton.uncheck()
+        } else {
+            assignment?.status = .completed
+            checkboxButton.check()
+        }
+        delegate?.assignmentController.changeStatus(assignment!)
+//        delegate?.tableView.reloadData()
     }
     
     private func configure() {

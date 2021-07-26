@@ -71,6 +71,7 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: AssignmentTableViewCell.reuseID) as! AssignmentTableViewCell
         let assignment = assignments[indexPath.row]
         cell.set(assignment: assignment)
+        cell.delegate = self
         return cell
     }
 }
