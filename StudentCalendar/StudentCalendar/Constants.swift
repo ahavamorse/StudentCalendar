@@ -20,6 +20,13 @@ enum SubjectColor {
           "Pink": UIColor.systemPink ]
 }
 
+enum TabBarItem {
+    static let schedule = UITabBarItem(title: "Schedule", image: UIImage(systemName: "calendar"), tag: 0)
+    static let assignments = UITabBarItem(title: "Assignments", image: UIImage(systemName: "list.bullet"), tag: 1)
+    static let classes = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock"), tag: 2)
+    static let assessments = UITabBarItem(title: "Assessments", image: UIImage(systemName: "book"), tag: 3)
+}
+
 enum CheckboxImage {
     static let checked = UIImage(named: "checked")
     static let unchecked = UIImage(named: "unchecked")

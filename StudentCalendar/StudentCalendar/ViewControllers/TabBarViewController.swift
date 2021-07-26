@@ -45,7 +45,7 @@ class TabBarViewController: UITabBarController {
         viewController.eventController = eventController
         viewController.subjectController = subjectController
         viewController.title = "Schedule"
-        viewController.tabBarItem = UITabBarItem(title: "Schedule", image: UIImage(systemName: "calendar"), tag: 0)
+        viewController.tabBarItem = TabBarItem.schedule
         return UINavigationController(rootViewController: viewController)
     }
     
@@ -53,8 +53,8 @@ class TabBarViewController: UITabBarController {
         let viewController = AssignmentsViewController()
         viewController.assignmentController = assignmentController
         viewController.subjectController = subjectController
-        viewController.title = "Tasks"
-        viewController.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "list.bullet"), tag: 1)
+        viewController.title = "Assignments"
+        viewController.tabBarItem = TabBarItem.assignments
         return UINavigationController(rootViewController: viewController)
     }
     
@@ -63,7 +63,7 @@ class TabBarViewController: UITabBarController {
 //        viewController.classController = classController
 //        viewController.subjectController = subjectController
         viewController.title = "Classes"
-        viewController.tabBarItem = UITabBarItem(title: "Classes", image: UIImage(systemName: "clock"), tag: 2)
+        viewController.tabBarItem = TabBarItem.classes
         return UINavigationController(rootViewController: viewController)
     }
     
@@ -71,8 +71,8 @@ class TabBarViewController: UITabBarController {
         let viewController = UIViewController()
 //        viewController.assessmentController = assessmentController
 //        viewController.subjectController = subjectController
-        viewController.title = "Tests"
-        viewController.tabBarItem = UITabBarItem(title: "Tests", image: UIImage(systemName: "book"), tag: 3)
+        viewController.title = "Assessments"
+        viewController.tabBarItem = TabBarItem.assessments
         return UINavigationController(rootViewController: viewController)
     }
 }
