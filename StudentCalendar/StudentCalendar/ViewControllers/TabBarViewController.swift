@@ -10,10 +10,10 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    let subjectController = SubjectController()
     let assignmentController = AssignmentController()
     let classController = ClassController()
     let assessmentController = AssessmentController()
+    var subjectController: SubjectController?
     var eventController: EventController?
 
     override func viewDidLoad() {
@@ -21,13 +21,13 @@ class TabBarViewController: UITabBarController {
         eventController = EventController(assignmentController: assignmentController,
                                           classController: classController,
                                           assessmentController: assessmentController)
-        
-        assignmentController.subjectController = subjectController
-        classController.subjectController = subjectController
-        assessmentController.subjectController = subjectController
+        subjectController = SubjectController(assignmentController: assignmentController,
+                                              classController: classController,
+                                              assessmentController: assessmentController)
         
         let math = Subject(title: "Math", colorName: "Blue")
         let english = Subject(title: "English", colorName: "Red")
+        subjectController?.add([math, english])
         
         assignmentController.add([Assignment(title: "Chapter 1 Homework", subject: math, status: .notStarted, date: Date().addingTimeInterval(1000))])
         classController.add([Class(title: "First Class", subject: math, date: Date())])
