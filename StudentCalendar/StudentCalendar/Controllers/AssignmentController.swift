@@ -31,7 +31,7 @@ class AssignmentController {
         subjectController?.add(newAssignments)
     }
     
-    func remove(oldAssignment: Assignment) {
+    func remove(_ oldAssignment: Assignment) {
         // remove assignment from list
         let date = oldAssignment.date
         if assignments[date]?.count == 1 {
@@ -43,6 +43,27 @@ class AssignmentController {
         }
         delegate?.redo()
         subjectController?.remove(oldAssignment)
+    }
+    
+    func remove(_ event: Event) {
+        if let assignments = self.assignments[event.date] {
+            for index in 0...assignments.count {
+                if compare(assignment: assignments[index], event: event) {
+                    self.assignments[event.date]?.remove(at: index)
+                    return
+                }
+            }
+        }
+    }
+    
+    func compare(assignment: Assignment, event: Event) -> Bool {
+        if assignment.date == event.date,
+            assignment.title == event.title,
+            assignment.subject.title == event.subject.title {
+            return true
+        } else {
+            return false
+        }
     }
     
     func getAssignments() -> [Assignment] {

@@ -45,6 +45,27 @@ class AssessmentController {
         subjectController?.remove(oldAssessment)
     }
     
+    func remove(_ event: Event) {
+        if let assessments = self.assessments[event.date] {
+            for index in 0...assessments.count {
+                if compare(assessment: assessments[index], event: event) {
+                    self.assessments[event.date]?.remove(at: index)
+                    return
+                }
+            }
+        }
+    }
+    
+    func compare(assessment: Assessment, event: Event) -> Bool {
+        if assessment.date == event.date,
+            assessment.title == event.title,
+            assessment.subject.title == event.subject.title {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getAssessments() -> [Assessment] {
         // return assessments in sorted order
         let sortedDates = assessments.keys.sorted()

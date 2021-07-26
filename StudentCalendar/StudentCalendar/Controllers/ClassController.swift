@@ -45,6 +45,27 @@ class ClassController {
         subjectController?.remove(oldClass)
     }
     
+    func remove(_ event: Event) {
+        if let classes = self.classes[event.date] {
+            for index in 0...classes.count {
+                if compare(currentClass: classes[index], event: event) {
+                    self.classes[event.date]?.remove(at: index)
+                    return
+                }
+            }
+        }
+    }
+    
+    func compare(currentClass: Class, event: Event) -> Bool {
+        if currentClass.date == event.date,
+            currentClass.title == event.title,
+            currentClass.subject.title == event.subject.title {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getClasses() -> [Class] {
         // return classes in sorted order
         let sortedDates = classes.keys.sorted()
