@@ -14,4 +14,5 @@ protocol Event {
     var subject: Subject { get set }
     var dayString: String { get }
     var timeString: String { get }
+    var eventType: EventType { get set }
 }

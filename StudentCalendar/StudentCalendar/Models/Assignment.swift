@@ -11,6 +11,7 @@ import Foundation
 struct Assignment: Event, Equatable {
     var title: String
     var subject: Subject
+    var eventType: EventType = .assignment
 //    var type: AssignmentType
 //    var pointValue: Int
 //    var score: Int?

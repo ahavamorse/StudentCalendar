@@ -11,6 +11,7 @@ import Foundation
 struct Class: Event, Equatable {
     var title: String
     var subject: Subject
+    var eventType: EventType = .classPeriod
     
     var date: Date  // start time
 //    var endDate: Date

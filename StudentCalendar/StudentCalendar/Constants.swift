@@ -25,6 +25,12 @@ enum CheckboxImage {
     static let unchecked = UIImage(named: "unchecked")
 }
 
+enum EventType {
+    case assignment
+    case classPeriod
+    case assessment
+}
+
 //enum AssignmentType {
 //    case homework
 //    case project
