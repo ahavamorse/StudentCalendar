@@ -29,6 +29,8 @@ class AddEventViewController: UIViewController {
         }
     }
     
+    var subjects: [Subject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -52,5 +54,23 @@ class AddEventViewController: UIViewController {
         subjectPickerView.dataSource = self
         dateLabel.text = "Date:" // can change
         datePickerView.datePickerMode = .dateAndTime
+    }
+    
+    @objc func segmentedControlValueChanged() {
+        // todo
+    }
+}
+
+extension AddEventViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return subjects.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return subjects[row].title
     }
 }
