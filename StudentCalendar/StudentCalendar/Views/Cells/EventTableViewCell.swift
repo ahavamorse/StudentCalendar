@@ -36,24 +36,23 @@ class EventTableViewCell: UITableViewCell {
         subjectColorImageView.translatesAutoresizingMaskIntoConstraints = false
         
 //        accessoryType = .disclosureIndicator
-        let padding: CGFloat = 12 // customize
+        let padding: CGFloat = 12
         
         NSLayoutConstraint.activate([
             subjectColorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             subjectColorImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            subjectColorImageView.heightAnchor.constraint(equalToConstant: 20), // customize
-            subjectColorImageView.widthAnchor.constraint(equalToConstant: 20), // customize
+            subjectColorImageView.heightAnchor.constraint(equalToConstant: 20),
+            subjectColorImageView.widthAnchor.constraint(equalToConstant: 20),
             
             timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            timeLabel.widthAnchor.constraint(equalToConstant: 100),
-            timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30 - padding),
-            timeLabel.heightAnchor.constraint(equalToConstant: 40), // customize
+//            timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30 - padding), // for with disclosure indicator
+            timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            timeLabel.heightAnchor.constraint(equalToConstant: 40),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: subjectColorImageView.trailingAnchor, constant: padding),
-//            titleLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -padding),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: timeLabel.leadingAnchor, constant: -padding),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40) // customize
+            titleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
