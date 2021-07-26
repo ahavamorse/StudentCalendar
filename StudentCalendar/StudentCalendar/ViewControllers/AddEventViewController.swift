@@ -44,4 +44,18 @@ class AddEventViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        
+        view.addSubviews(/*eventTypeSegmentedControl), */titleTextField)/*, subjectLabel, subjectPickerView, dateLabel, datePickerView)*/
+        
+        eventTypeSegmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        
+        titleTextField.placeholder = "Title"
+        titleTextField.font = .preferredFont(forTextStyle: .title3)
+        subjectLabel.text = "Subject:"
+        subjectPickerView.dataSource = self
+        dateLabel.text = "Date:" // can change
+        datePickerView.datePickerMode = .dateAndTime
+        
 }
