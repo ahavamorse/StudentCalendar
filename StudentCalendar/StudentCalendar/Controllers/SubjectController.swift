@@ -11,9 +11,19 @@ import Foundation
 class SubjectController {
     
     var subjects: [String: Subject] = [:]
+    let assignmentController: AssignmentController
+    let classController: ClassController
+    let assessmentController: AssessmentController
     
-    init(subjects: [Subject] = []) {
-        add(subjects)
+    init(subjects: [Subject] = [], assignmentController: AssignmentController, classController: ClassController, assessmentController: AssessmentController) {
+        self.assignmentController = assignmentController
+        self.classController = classController
+        self.assessmentController = assessmentController
+        self.add(subjects)
+        
+        assignmentController.subjectController = self
+        classController.subjectController = self
+        assessmentController.subjectController = self
     }
     
     func add(_ newSubjects: [Subject]) {
@@ -28,12 +38,20 @@ class SubjectController {
         }
     }
     
-//    func remove(_ subject: Subject) {
-//        subjects.removeValue(forKey: subject.title)
-//        // todo: remove all events of the subject
-//    }
+    func remove(_ subject: Subject) {
+        subjects.removeValue(forKey: subject.title)
+        for event in subject.events {
+            remove(event)
+        }
+    }
     
     func remove(_ event: Event) {
-        // todo remove event from subject's array of events
+        if event.eventType == .assignment {
+            assignmentController.remove(event)
+        } else if event.eventType == .classPeriod {
+            classController.remove(event)
+        } else {
+            assessmentController.remove(event)
+        }
     }
 }
