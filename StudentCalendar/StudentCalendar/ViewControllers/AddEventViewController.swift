@@ -33,5 +33,15 @@ class AddEventViewController: UIViewController {
     var classController: ClassController?
     var assessmentController: AssessmentController?
     var subjects: [Subject] = []
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureNavigationBar()
+        configureViewController()
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
 }
