@@ -34,6 +34,7 @@
 		0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */; };
 		0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */; };
 		0CDE7E9326AF11CB00E3ECBD /* SubjectIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */; };
+		0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectIndicatorImageView.swift; sourceTree = "<group>"; };
+		0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
 				0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */,
 				0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */,
+				0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
+				0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
 				0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */,
