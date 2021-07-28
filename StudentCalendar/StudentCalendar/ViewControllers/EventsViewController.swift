@@ -8,35 +8,15 @@
 
 import UIKit
 
-class EventsViewController: UIViewController {
+protocol EventsViewController {
     
-    let tableView = UITableView()
-    var subjectController: SubjectController!
-    var addEventViewController: AddEventViewController?
+    var tableView: UITableView { get set }
+    var subjectController: SubjectController { get set }
+    var addEventViewController: AddEventViewController { get set }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureNavigationBar()
-        configureViewController()
-        configureTableView()
-        updateUI()
-    }
-    
-    private func configureNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func configureViewController() {
-        view.backgroundColor = .systemBackground
-    }
-    
-    private func configureTableView() {
-        view.addSubview(tableView)
-        
-        tableView.frame = view.bounds
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.allowsSelection = false
-        tableView.removeExcessCells()
-    }
+    func viewDidLoad()
+    func configureNavigationBar()
+    func configureViewController()
+    func configureTableView()
+    func updateUI()
 }
