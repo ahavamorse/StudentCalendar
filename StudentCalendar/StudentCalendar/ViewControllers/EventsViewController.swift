@@ -9,6 +9,10 @@
 import UIKit
 
 class EventsViewController: UIViewController {
+    
+    let tableView = UITableView()
+    var subjectController: SubjectController!
+    var addEventViewController: AddEventViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
