@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController {
     let assignmentController = AssignmentController()
     let classController = ClassController()
     let assessmentController = AssessmentController()
+    let addEventViewController = AddEventViewController()
     var subjectController: SubjectController?
     var eventController: EventController?
 
@@ -34,6 +35,7 @@ class TabBarViewController: UITabBarController {
         assessmentController.add([Assessment(title: "Chapter 1 Test", subject: math, date: Date().addingTimeInterval(5000))])
         assignmentController.add([Assignment(title: "Homework 2", subject: english, status: .notStarted, date: Date().addingTimeInterval(100000))])
         
+        
         viewControllers = [createScheduleViewController(),
                            createAssignmentsViewController(),
                            createClassesViewController(),
@@ -53,6 +55,8 @@ class TabBarViewController: UITabBarController {
         let viewController = AssignmentsViewController()
         viewController.assignmentController = assignmentController
         viewController.subjectController = subjectController
+        viewController.addEventViewController = addEventViewController
+        
         viewController.title = "Assignments"
         viewController.tabBarItem = TabBarItem.assignments
         return UINavigationController(rootViewController: viewController)
@@ -62,6 +66,8 @@ class TabBarViewController: UITabBarController {
         let viewController = UIViewController()
 //        viewController.classController = classController
 //        viewController.subjectController = subjectController
+//        viewController.addEventViewController = addEventViewController
+        
         viewController.title = "Classes"
         viewController.tabBarItem = TabBarItem.classes
         return UINavigationController(rootViewController: viewController)
@@ -71,6 +77,8 @@ class TabBarViewController: UITabBarController {
         let viewController = UIViewController()
 //        viewController.assessmentController = assessmentController
 //        viewController.subjectController = subjectController
+//        viewController.addEventViewController = addEventViewController
+        
         viewController.title = "Assessments"
         viewController.tabBarItem = TabBarItem.assessments
         return UINavigationController(rootViewController: viewController)

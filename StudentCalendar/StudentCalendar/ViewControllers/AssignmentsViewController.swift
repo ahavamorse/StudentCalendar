@@ -13,6 +13,7 @@ class AssignmentsViewController: UIViewController {
     let tableView = UITableView()
     var assignmentController: AssignmentController!
     var subjectController: SubjectController!
+    var addEventViewController: AddEventViewController?
     var assignments: [Assignment] = []
     
     override func viewDidLoad() {
@@ -47,7 +48,21 @@ class AssignmentsViewController: UIViewController {
     }
     
     @objc func addAssignment() {
+        let viewController = AddEventViewController()
+        viewController.eventTypeSegmentedControl.selectedSegmentIndex = 0
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.title = "New Event"
         
+        // todo
+        let subjectNames = subjectController.subjects.keys
+        var subjects: [Subject] = []
+        for subjectName in subjectNames {
+            let subject = subjectController.subjects[subjectName]!
+            subjects.append(subject)
+        }
+        viewController.subjects = subjects
+        
+        present(viewController, animated: true)
     }
     
     func updateUI() {
