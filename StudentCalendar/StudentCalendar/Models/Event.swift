@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Event {
-    var title: String { get set}
+    var title: String { get set }
     var date: Date { get set }
     var subject: Subject { get set }
     var dayString: String { get }
