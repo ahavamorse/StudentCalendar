@@ -18,5 +18,22 @@ class ClassesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+        configureViewController()
+        configureTableView()
+        classes = classController.getClasses()
+        updateUI()
+    }
+    
+    private func configureNavigationBar() {
+        
+    }
+    
+    private func configureViewController() {
+        
+    }
+    
+    private func configureTableView() {
+        
     }
 }
