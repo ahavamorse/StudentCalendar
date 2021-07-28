@@ -16,5 +16,9 @@ class EventsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+        configureViewController()
+        configureTableView()
+        updateUI()
     }
 }
