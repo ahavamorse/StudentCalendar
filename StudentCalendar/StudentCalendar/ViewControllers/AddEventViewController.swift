@@ -10,7 +10,9 @@ import UIKit
 
 class AddEventViewController: UIViewController {
     
+    let stackView = UIStackView()
     let eventTypeSegmentedControl = UISegmentedControl(items: ["Assignment", "Class Period", "Assessment"])
+    let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let titleTextField = UITextField()
     let subjectLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let subjectPickerView = UIPickerView()
@@ -33,57 +35,62 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
         configureViewController()
+        configureStackView()
+        configureUIElements()
+        layoutUI()
+        configureStackView()
     }
     
-    func configureNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func configureStackView() {
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.alignment = .center
         
-        view.addSubviews(eventTypeSegmentedControl, titleTextField, subjectLabel, subjectPickerView, dateLabel, datePickerView)
-        
+        stackView.addArrangedSubview(eventTypeSegmentedControl)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(titleTextField)
+        stackView.addArrangedSubview(dateLabel)
+        stackView.addArrangedSubview(datePickerView)
+        stackView.addArrangedSubview(subjectLabel)
+        stackView.addArrangedSubview(subjectPickerView)
+    }
+    
+    private func configureUIElements() {
         eventTypeSegmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         
-        titleTextField.placeholder = "Title"
+        titleLabel.text = "Title:"
+        titleTextField.placeholder = "Enter title here"
         titleTextField.font = .preferredFont(forTextStyle: .title3)
-        subjectLabel.text = "Subject:"
-        subjectPickerView.dataSource = self
+        titleTextField.borderStyle = .roundedRect
+        
         dateLabel.text = "Date:" // can change
         datePickerView.datePickerMode = .dateAndTime
         
-        let padding: CGFloat = 12
+        subjectLabel.text = "Subject:"
+        subjectPickerView.dataSource = self
+        subjectPickerView.delegate = self
+    }
+    
+    private func layoutUI() {
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            eventTypeSegmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            eventTypeSegmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            eventTypeSegmentedControl.widthAnchor.constraint(equalToConstant: 50),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
             
-            titleTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            titleTextField.heightAnchor.constraint(equalToConstant: 22),
-            
-            subjectLabel.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: padding),
-            subjectLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            subjectLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            subjectLabel.heightAnchor.constraint(equalToConstant: 25),
-            
-            subjectPickerView.topAnchor.constraint(equalTo: subjectLabel.bottomAnchor, constant: padding),
-            subjectPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            subjectPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            
-            dateLabel.topAnchor.constraint(equalTo: subjectPickerView.bottomAnchor, constant: padding),
-            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            dateLabel.heightAnchor.constraint(equalToConstant: 25),
-            
-            datePickerView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: padding),
-            datePickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            datePickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+            titleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            titleTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            dateLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            subjectLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
     
@@ -92,7 +99,7 @@ class AddEventViewController: UIViewController {
     }
 }
 
-extension AddEventViewController: UIPickerViewDataSource {
+extension AddEventViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
