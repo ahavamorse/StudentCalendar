@@ -11,7 +11,6 @@ import UIKit
 class AddEventViewController: UIViewController {
     
     let stackView = UIStackView()
-    let eventTypeSegmentedControl = UISegmentedControl(items: ["Assignment", "Class Period", "Assessment"])
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let titleTextField = UITextField()
     let subjectLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
@@ -19,31 +18,39 @@ class AddEventViewController: UIViewController {
     let dateLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let datePickerView = UIDatePicker()
     
-    var eventType: EventType {
-        get {
-            if eventTypeSegmentedControl.tag == 0 {
-                return .assignment
-            } else if eventTypeSegmentedControl.tag == 1 {
-                return .classPeriod
-            } else {
-                return .assessment
-            }
-        }
+    weak var delegate: EventsViewControllerProtocol?
+    var subjects: [Subject] = []
+    var eventType: EventType
+    var titleString: String
+    
+    init(title: String, dateLabelText: String = "Date:", type: EventType) {
+        self.titleString = title
+        self.dateLabel.text = dateLabelText
+        self.eventType = type
+        super.init(nibName: nil, bundle: nil)
     }
     
-    var subjects: [Subject] = []
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         configureViewController()
         configureStackView()
         configureUIElements()
-        layoutUI()
         configureStackView()
+        layoutUI()
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
     }
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = titleString
     }
     
     private func configureStackView() {
@@ -51,7 +58,6 @@ class AddEventViewController: UIViewController {
         stackView.spacing = 15
         stackView.alignment = .center
         
-        stackView.addArrangedSubview(eventTypeSegmentedControl)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(titleTextField)
         stackView.addArrangedSubview(dateLabel)
@@ -61,14 +67,11 @@ class AddEventViewController: UIViewController {
     }
     
     private func configureUIElements() {
-        eventTypeSegmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        
         titleLabel.text = "Title:"
         titleTextField.placeholder = "Enter title here"
         titleTextField.font = .preferredFont(forTextStyle: .title3)
         titleTextField.borderStyle = .roundedRect
         
-        dateLabel.text = "Date:" // can change
         datePickerView.datePickerMode = .dateAndTime
         
         subjectLabel.text = "Subject:"
@@ -78,14 +81,13 @@ class AddEventViewController: UIViewController {
     
     private func layoutUI() {
         view.addSubview(stackView)
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
             
             titleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             titleTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
@@ -94,8 +96,25 @@ class AddEventViewController: UIViewController {
         ])
     }
     
-    @objc func segmentedControlValueChanged() {
-        // todo
+    @objc func doneButtonTapped() {
+        if eventType == .assignment {
+            if let delegate = self.delegate as? AssignmentsViewController,
+                let title = titleTextField.text {
+                
+                delegate.assignmentController.add([Assignment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], status: .notStarted, date: datePickerView.date)])
+            }
+        } else if eventType == .classPeriod {
+            if let delegate = self.delegate as? ClassesViewController,
+                let title = titleTextField.text {
+                delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+            }
+        } else {
+//            if let delegate = self.delegate as? AssessmentsViewController,
+//            let title = titleTextField.text {
+//            delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+        }
+        
+        delegate?.updateUI()
     }
 }
 
