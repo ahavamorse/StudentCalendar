@@ -58,4 +58,15 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
         
         present(addEventViewController, animated: true)
     }
+    
+    func updateUI() {
+        if classes.isEmpty {
+            // todo: show empty state
+        } else {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
+    }
 }
