@@ -37,6 +37,7 @@
 		0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */; };
 		0CDE7E9726B20B3A00E3ECBD /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */; };
 		0CDE7E9D26B3087D00E3ECBD /* EventsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */; };
+		0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewControllerProtocol.swift; sourceTree = "<group>"; };
+		0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,10 +166,10 @@
 			children = (
 				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
 				0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */,
+				0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */,
 				0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */,
 				0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */,
 				0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */,
-				0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +190,7 @@
 			children = (
 				0C600ED226A88DCA00CFEEBA /* EventTableViewCell.swift */,
 				0C10AC6D26AB37EE00C63610 /* AssignmentTableViewCell.swift */,
+				0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
 				0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */,
+				0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
 				0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */,
