@@ -44,7 +44,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
         tableView.allowsSelection = false
         tableView.removeExcessCells()
         
-        tableView.register(AssignmentTableViewCell.self, forCellReuseIdentifier: AssignmentTableViewCell.reuseID)
+        tableView.register(ClassTableViewCell.self, forCellReuseIdentifier: ClassTableViewCell.reuseID)
     }
     
     @objc func addClass() {
@@ -68,5 +68,19 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
                 self.view.bringSubviewToFront(self.tableView)
             }
         }
+    }
+}
+
+extension ClassesViewController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return classes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseID) as! ClassTableViewCell
+        let currentClass = classes[indexPath.row]
+        cell.set(currentClass)
+        cell.delegate = self
+        return cell
     }
 }
