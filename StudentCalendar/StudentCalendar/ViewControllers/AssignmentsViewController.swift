@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssignmentsViewController: UIViewController, EventsViewController {
+class AssignmentsViewController: UIViewController, EventsViewControllerProtocol {
 
     var tableView = UITableView()
     var assignmentController: AssignmentController!

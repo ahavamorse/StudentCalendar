@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ClassesViewController: UIViewController {
+class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     
     let tableView = UITableView()
     var classController: ClassController!
     var subjectController: SubjectController!
-    var addEventViewController: AddEventViewController?
+    var addEventViewController: AddEventViewController!
     var classes: [Class] = []
 
     override func viewDidLoad() {
@@ -25,15 +25,37 @@ class ClassesViewController: UIViewController {
         updateUI()
     }
     
-    private func configureNavigationBar() {
-        
+    internal func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClass))
     }
     
-    private func configureViewController() {
-        
+    internal func configureViewController() {
+        view.backgroundColor = .systemBackground
     }
     
-    private func configureTableView() {
+    internal func configureTableView() {
+        view.addSubview(tableView)
         
+        tableView.frame = view.bounds
+        tableView.rowHeight = 85
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.removeExcessCells()
+        
+        tableView.register(AssignmentTableViewCell.self, forCellReuseIdentifier: AssignmentTableViewCell.reuseID)
+    }
+    
+    @objc func addClass() {
+        addEventViewController.eventTypeSegmentedControl.selectedSegmentIndex = 1
+        addEventViewController.modalPresentationStyle = .fullScreen
+        addEventViewController.title = "New Class"
+        
+        for subject in subjectController.subjects.values {
+            addEventViewController.subjects.append(subject)
+        }
+        
+        present(addEventViewController, animated: true)
     }
 }
