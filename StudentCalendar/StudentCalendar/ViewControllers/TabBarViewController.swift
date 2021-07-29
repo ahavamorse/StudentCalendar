@@ -63,10 +63,10 @@ class TabBarViewController: UITabBarController {
     }
     
     func createClassesViewController() -> UINavigationController {
-        let viewController = UIViewController()
-//        viewController.classController = classController
-//        viewController.subjectController = subjectController
-//        viewController.addEventViewController = addEventViewController
+        let viewController = ClassesViewController()
+        viewController.classController = classController
+        viewController.subjectController = subjectController
+        viewController.addEventViewController = addEventViewController
         
         viewController.title = "Classes"
         viewController.tabBarItem = TabBarItem.classes

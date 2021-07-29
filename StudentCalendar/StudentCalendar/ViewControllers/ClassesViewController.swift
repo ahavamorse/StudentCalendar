@@ -10,7 +10,7 @@ import UIKit
 
 class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     
-    let tableView = UITableView()
+    var tableView = UITableView()
     var classController: ClassController!
     var subjectController: SubjectController!
     var addEventViewController: AddEventViewController!
@@ -79,7 +79,7 @@ extension ClassesViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseID) as! ClassTableViewCell
         let currentClass = classes[indexPath.row]
-        cell.set(currentClass)
+        cell.set(cellClass: currentClass)
         cell.delegate = self
         return cell
     }
