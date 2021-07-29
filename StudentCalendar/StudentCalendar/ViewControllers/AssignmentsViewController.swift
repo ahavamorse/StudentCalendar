@@ -13,7 +13,8 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     var tableView = UITableView()
     var assignmentController: AssignmentController!
     var subjectController: SubjectController!
-    var addEventViewController: AddEventViewController!
+    
+    var addAssignmentViewController = AddEventViewController(title: "New Assignment", dateLabelText: "Due Date:", type: .assignment)
     var assignments: [Assignment] = []
     
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
         configureNavigationBar()
         configureViewController()
         configureTableView()
-        assignments = assignmentController.getAssignments()
         updateUI()
     }
     
@@ -48,18 +48,14 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     @objc func addAssignment() {
-        addEventViewController.eventTypeSegmentedControl.selectedSegmentIndex = 0
-        addEventViewController.modalPresentationStyle = .fullScreen
-        addEventViewController.title = "New Assignment"
-        
         for subject in subjectController.subjects.values {
-            addEventViewController.subjects.append(subject)
+            addAssignmentViewController.subjects.append(subject)
         }
-        
-        present(addEventViewController, animated: true)
+        navigationController?.pushViewController(addAssignmentViewController, animated: true)
     }
     
     func updateUI() {
+        assignments = assignmentController.getAssignments()
         if assignments.isEmpty {
             // todo: show empty state
         } else {

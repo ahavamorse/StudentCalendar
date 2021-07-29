@@ -12,7 +12,6 @@ protocol EventsViewControllerProtocol: UITableViewDelegate, UITableViewDataSourc
     
     var tableView: UITableView { get set }
     var subjectController: SubjectController! { get set }
-    var addEventViewController: AddEventViewController! { get set }
 
     func viewDidLoad()
     func configureNavigationBar()

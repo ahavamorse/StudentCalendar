@@ -13,7 +13,8 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     var tableView = UITableView()
     var classController: ClassController!
     var subjectController: SubjectController!
-    var addEventViewController: AddEventViewController!
+    
+    var addClassViewController = AddEventViewController(title: "New Class Period", type: .classPeriod)
     var classes: [Class] = []
 
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
         configureNavigationBar()
         configureViewController()
         configureTableView()
-        classes = classController.getClasses()
         updateUI()
     }
     
@@ -48,18 +48,14 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     }
     
     @objc func addClass() {
-        addEventViewController.eventTypeSegmentedControl.selectedSegmentIndex = 1
-        addEventViewController.modalPresentationStyle = .fullScreen
-        addEventViewController.title = "New Class"
-        
         for subject in subjectController.subjects.values {
-            addEventViewController.subjects.append(subject)
+            addClassViewController.subjects.append(subject)
         }
-        
-        present(addEventViewController, animated: true)
+        navigationController?.pushViewController(addClassViewController, animated: true)
     }
     
     func updateUI() {
+        classes = classController.getClasses()
         if classes.isEmpty {
             // todo: show empty state
         } else {
