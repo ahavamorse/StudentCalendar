@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AssignmentsViewController: UIViewController {
+class AssignmentsViewController: UIViewController, EventsViewController {
 
-    let tableView = UITableView()
+    var tableView = UITableView()
     var assignmentController: AssignmentController!
     var subjectController: SubjectController!
-    var addEventViewController: AddEventViewController?
+    var addEventViewController: AddEventViewController!
     var assignments: [Assignment] = []
     
     override func viewDidLoad() {
@@ -25,16 +25,16 @@ class AssignmentsViewController: UIViewController {
         updateUI()
     }
     
-    func configureNavigationBar() {
+    internal func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAssignment))
     }
     
-    func configureViewController() {
+    internal func configureViewController() {
         view.backgroundColor = .systemBackground
     }
     
-    func configureTableView() {
+    internal func configureTableView() {
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
@@ -48,21 +48,15 @@ class AssignmentsViewController: UIViewController {
     }
     
     @objc func addAssignment() {
-        let viewController = AddEventViewController()
-        viewController.eventTypeSegmentedControl.selectedSegmentIndex = 0
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.title = "New Event"
+        addEventViewController.eventTypeSegmentedControl.selectedSegmentIndex = 0
+        addEventViewController.modalPresentationStyle = .fullScreen
+        addEventViewController.title = "New Assignment"
         
-        // todo
-        let subjectNames = subjectController.subjects.keys
-        var subjects: [Subject] = []
-        for subjectName in subjectNames {
-            let subject = subjectController.subjects[subjectName]!
-            subjects.append(subject)
+        for subject in subjectController.subjects.values {
+            addEventViewController.subjects.append(subject)
         }
-        viewController.subjects = subjects
         
-        present(viewController, animated: true)
+        present(addEventViewController, animated: true)
     }
     
     func updateUI() {
@@ -77,7 +71,7 @@ class AssignmentsViewController: UIViewController {
     }
 }
 
-extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource {
+extension AssignmentsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return assignments.count
     }

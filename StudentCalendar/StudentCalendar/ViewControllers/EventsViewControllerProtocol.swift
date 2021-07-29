@@ -1,5 +1,5 @@
 //
-//  EventsViewController.swift
+//  EventsViewControllerProtocol.swift
 //  StudentCalendar
 //
 //  Created by HapiDani on 7/28/21.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol EventsViewController {
+protocol EventsViewControllerProtocol: UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView { get set }
-    var subjectController: SubjectController { get set }
-    var addEventViewController: AddEventViewController { get set }
+    var subjectController: SubjectController! { get set }
+    var addEventViewController: AddEventViewController! { get set }
 
     func viewDidLoad()
     func configureNavigationBar()
