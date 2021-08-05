@@ -28,6 +28,14 @@ class AssessmentTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(assessment: Assessment) {
+        self.assessment = assessment
+        subjectColorImageView.set(color: assessment.subject.color)
+        
+        titleLabel.text = "\(assessment.subject.title):  \(assessment.title)"
+        dateLabel.text = "Date: \(assessment.dayString)"
+    }
+    
     private func configure() {
         addSubviews(subjectColorImageView, titleLabel, dateLabel)
         
