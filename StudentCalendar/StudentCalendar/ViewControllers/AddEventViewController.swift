@@ -23,6 +23,8 @@ class AddEventViewController: UIViewController {
     var eventType: EventType
     var titleString: String
     
+    // TODO: have text field resign first responder when hit enter or on exit
+    
     init(title: String, dateLabelText: String = "Date:", type: EventType) {
         self.titleString = title
         self.dateLabel.text = dateLabelText
@@ -38,6 +40,7 @@ class AddEventViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
+        createTabGestureRecognizer()
         configureStackView()
         configureUIElements()
         configureStackView()
@@ -51,6 +54,11 @@ class AddEventViewController: UIViewController {
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         title = titleString
+    }
+    
+    private func createTabGestureRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doneEnteringTitle))
+        view.addGestureRecognizer(tap)
     }
     
     private func configureStackView() {
@@ -71,6 +79,7 @@ class AddEventViewController: UIViewController {
         titleTextField.placeholder = "Enter title here"
         titleTextField.font = .preferredFont(forTextStyle: .title3)
         titleTextField.borderStyle = .roundedRect
+        titleTextField.addTarget(self, action: #selector(doneEnteringTitle), for: .primaryActionTriggered)
         
         datePickerView.datePickerMode = .dateAndTime
         
@@ -96,28 +105,35 @@ class AddEventViewController: UIViewController {
         ])
     }
     
+    @objc func doneEnteringTitle() {
+        titleTextField.resignFirstResponder()
+    }
+    
     @objc func doneButtonTapped() {
-        if eventType == .assignment {
-            if let delegate = self.delegate as? AssignmentsViewController,
-                let title = titleTextField.text {
-                
-                delegate.assignmentController.add([Assignment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], status: .notStarted, date: datePickerView.date)])
+        if let title = titleTextField.text, !title.isEmpty {
+            if eventType == .assignment {
+                if let delegate = self.delegate as? AssignmentsViewController {
+                    
+                    delegate.assignmentController.add([Assignment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], status: .notStarted, date: datePickerView.date)])
+                }
+            } else if eventType == .classPeriod {
+                if let delegate = self.delegate as? ClassesViewController {
+                    delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+                }
+            } else {
+//                if let delegate = self.delegate as? AssessmentsViewController {
+//                    delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+//                }
             }
-        } else if eventType == .classPeriod {
-            if let delegate = self.delegate as? ClassesViewController,
-                let title = titleTextField.text {
-                delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-            }
+            navigationController?.popViewController(animated: true)
         } else {
-//            if let delegate = self.delegate as? AssessmentsViewController,
-//            let title = titleTextField.text {
-//            delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+            let alert = UIAlertController(title: "Missing Title", message: "Please enter a title before trying to save.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(alert, animated: true)
         }
-        
-        delegate?.updateUI()
     }
 }
-
+    
 extension AddEventViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
