@@ -16,6 +16,11 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     
     var assessments: [String: [Assessment]] = [:]
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -52,5 +57,17 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
             addAssessmentViewController.subjects.append(subject)
         }
         navigationController?.pushViewController(addAssessmentViewController, animated: true)
+    }
+    
+    func updateUI() {
+        assessments = assessmentController.getAssessments()
+        if assessments.isEmpty {
+            // to do: show empty state
+        } else {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
     }
 }
