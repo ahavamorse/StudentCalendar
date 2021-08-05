@@ -14,7 +14,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     var classController: ClassController!
     var subjectController: SubjectController!
     
-    var classes: [Class] = []
+    var classes: [[Class]] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,7 +60,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     }
     
     func updateUI() {
-        classes = classController.getClasses()
+        classes = classController.getClassesByDay()
         if classes.isEmpty {
             // to do: show empty state
         } else {
@@ -73,13 +73,22 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
 }
 
 extension ClassesViewController {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return classes.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return classes[section][0].dayString
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return classes[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseID) as! ClassTableViewCell
-        let currentClass = classes[indexPath.row]
+        let currentClass = classes[indexPath.section][indexPath.row]
         cell.set(cellClass: currentClass)
         cell.delegate = self
         return cell

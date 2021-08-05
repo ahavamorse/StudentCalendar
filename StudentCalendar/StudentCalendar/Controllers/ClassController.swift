@@ -75,4 +75,19 @@ class ClassController {
         }
         return sortedClasses
     }
+    
+    func getClassesByDay() -> [[Class]] {
+        var daysOfClasses: [[Class]] = []
+        var currentDay = ""
+        var currentIndex = -1
+        for currentClass in getClasses() {
+            if currentClass.dayString != currentDay {
+                daysOfClasses.append([])
+                currentIndex += 1
+                currentDay = currentClass.dayString
+            }
+            daysOfClasses[currentIndex].append(currentClass)
+        }
+        return daysOfClasses
+    }
 }
