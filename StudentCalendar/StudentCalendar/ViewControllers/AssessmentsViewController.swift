@@ -15,6 +15,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     var subjectController: SubjectController!
     
     var assessments: [String: [Assessment]] = [:]
+    var subjects: [Subject] = []
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,7 +61,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     func updateUI() {
-        assessments = assessmentController.getAssessments()
+        getAssessments()
         if assessments.isEmpty {
             // to do: show empty state
         } else {
@@ -69,5 +70,32 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
                 self.view.bringSubviewToFront(self.tableView)
             }
         }
+    }
+    
+    func getAssessments() {
+        // to do: set subjects and assessments
+    }
+}
+
+extension AssessmentsViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return assessments.keys.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return subjects[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return assessments[subjects[section].title]!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: AssessmentTableViewCell.reuseID) as! AssessmentTableViewCell
+        let assessment = assessments[subjects[indexPath.section].title]![indexPath.row]
+        cell.set(assessment: assessment)
+        cell.delegate = self
+        return cell
     }
 }
