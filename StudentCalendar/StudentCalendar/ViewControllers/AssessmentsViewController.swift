@@ -43,7 +43,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
-        tableView.rowHeight = 80 // might change
+        tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
