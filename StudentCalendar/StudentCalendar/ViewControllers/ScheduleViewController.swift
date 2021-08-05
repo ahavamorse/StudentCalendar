@@ -15,13 +15,16 @@ class ScheduleViewController: UIViewController {
     var subjectController: SubjectController!
     var eventsByDay: [[Event]] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
         configureTableView()
-        eventsByDay = eventController.getEventsByDay()
-        updateUI()
     }
     
     func configureNavigationBar() {
@@ -47,10 +50,11 @@ class ScheduleViewController: UIViewController {
     }
     
     @objc func showSubjects() {
-        
+        // to do
     }
     
     func updateUI() {
+        eventsByDay = eventController.getEventsByDay()
         if eventsByDay.isEmpty {
             // to do: show empty state
         } else {

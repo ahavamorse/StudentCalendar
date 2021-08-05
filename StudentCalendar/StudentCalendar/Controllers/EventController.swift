@@ -30,7 +30,8 @@ class EventController {
     
     func redo() {
         events = [:]
-        add(assignmentController.getAssignments())
+        let (uncompletedAssignments, _) = assignmentController.getSortedAssignments()
+        add(uncompletedAssignments)
         add(classController.getClasses())
         add(assessmentController.getAssessments())
     }
