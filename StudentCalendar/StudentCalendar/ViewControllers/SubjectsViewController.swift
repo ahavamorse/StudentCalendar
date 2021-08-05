@@ -17,11 +17,16 @@ class SubjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureViewController()
     }
 
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSubject))
+    }
+    
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
     }
     
     @objc func addSubject() {
