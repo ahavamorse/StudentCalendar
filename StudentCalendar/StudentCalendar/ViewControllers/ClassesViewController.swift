@@ -14,7 +14,6 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     var classController: ClassController!
     var subjectController: SubjectController!
     
-    var addClassViewController = AddEventViewController(title: "New Class Period", type: .classPeriod)
     var classes: [Class] = []
 
     override func viewDidLoad() {
@@ -48,6 +47,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     }
     
     @objc func addClass() {
+        let addClassViewController = AddEventViewController(title: "New Class Period", type: .classPeriod)
         for subject in subjectController.subjects.values {
             addClassViewController.subjects.append(subject)
         }

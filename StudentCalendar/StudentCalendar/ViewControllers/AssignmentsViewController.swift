@@ -14,7 +14,6 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     var assignmentController: AssignmentController!
     var subjectController: SubjectController!
     
-    var addAssignmentViewController = AddEventViewController(title: "New Assignment", dateLabelText: "Due Date:", type: .assignment)
     var assignments: [Assignment] = []
     
     override func viewDidLoad() {
@@ -48,6 +47,7 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     @objc func addAssignment() {
+        let addAssignmentViewController = AddEventViewController(title: "New Assignment", dateLabelText: "Due Date:", type: .assignment)
         for subject in subjectController.subjects.values {
             addAssignmentViewController.subjects.append(subject)
         }
