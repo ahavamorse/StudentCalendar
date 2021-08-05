@@ -11,6 +11,7 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
     
     static let reuseID = "EventTableViewCell"
+    
     let subjectColorImageView = SubjectIndicatorImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let timeLabel = SecondaryTitleLabel(textAlignment: .right, font: .preferredFont(forTextStyle: .title2))
