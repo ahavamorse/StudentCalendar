@@ -71,9 +71,9 @@ class TabBarViewController: UITabBarController {
     }
     
     func createAssessmentsViewController() -> UINavigationController {
-        let viewController = UIViewController()
-//        viewController.assessmentController = assessmentController
-//        viewController.subjectController = subjectController
+        let viewController = AssessmentsViewController()
+        viewController.assessmentController = assessmentController
+        viewController.subjectController = subjectController
         viewController.title = "Assessments"
         viewController.tabBarItem = TabBarItem.assessments
         return UINavigationController(rootViewController: viewController)
