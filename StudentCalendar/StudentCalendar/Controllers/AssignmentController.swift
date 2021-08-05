@@ -79,24 +79,6 @@ class AssignmentController {
         return nil
     }
     
-    func getAssignments() -> ([Assignment], [Assignment]) {
-        // return assignments in sorted order, split by status
-        let sortedDates = assignments.keys.sorted()
-        var completedAssignments: [Assignment] = []
-        var notCompletedAssignments: [Assignment] = []
-        for key in sortedDates {
-            for assignment in assignments[key] ?? [] {
-                switch assignment.status {
-                case .completed:
-                    completedAssignments.append(assignment)
-                case .notStarted:
-                    notCompletedAssignments.append(assignment)
-                }
-            }
-        }
-        return (notCompletedAssignments, completedAssignments)
-    }
-    
     func getAssignments() -> [Assignment] {
         // return all assignments in sorted order
         let sortedDates = assignments.keys.sorted()
@@ -105,5 +87,20 @@ class AssignmentController {
             sortedAssignments += assignments[key] ?? []
         }
         return sortedAssignments
+    }
+    
+    func getSortedAssignments() -> ([Assignment], [Assignment]) {
+        // return assignments in sorted order, split by status
+        var completedAssignments: [Assignment] = []
+        var notCompletedAssignments: [Assignment] = []
+        for assignment in getAssignments() {
+            switch assignment.status {
+            case .completed:
+                completedAssignments.append(assignment)
+            case .notStarted:
+                notCompletedAssignments.append(assignment)
+            }
+        }
+        return (notCompletedAssignments, completedAssignments)
     }
 }

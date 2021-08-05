@@ -75,4 +75,19 @@ class AssessmentController {
         }
         return sortedAssessments
     }
+    
+    func getSortedAssessments() -> ([Subject], [String: [Assessment]]) {
+        var subjects: [Subject] = []
+        var assessments: [String: [Assessment]] = [:]
+        for assessment in getAssessments() {
+            let subject = assessment.subject
+            if assessments[subject.title] != nil {
+                assessments[subject.title]?.append(assessment)
+            } else {
+                subjects.append(subject)
+                assessments[subject.title] = [assessment]
+            }
+        }
+        return (subjects, assessments)
+    }
 }

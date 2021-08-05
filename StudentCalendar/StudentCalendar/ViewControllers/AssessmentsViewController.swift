@@ -43,7 +43,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
-        tableView.rowHeight = 80
+        tableView.rowHeight = 85
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -62,7 +62,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     func updateUI() {
-        getAssessments()
+        (subjects, assessments) = assessmentController.getSortedAssessments()
         if assessments.isEmpty {
             // to do: show empty state
         } else {
@@ -71,10 +71,6 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
                 self.view.bringSubviewToFront(self.tableView)
             }
         }
-    }
-    
-    func getAssessments() {
-        // to do: set subjects and assessments
     }
 }
 

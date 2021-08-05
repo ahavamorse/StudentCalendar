@@ -32,7 +32,7 @@ class AssessmentTableViewCell: UITableViewCell {
         self.assessment = assessment
         subjectColorImageView.set(color: assessment.subject.color)
         
-        titleLabel.text = "\(assessment.subject.title):  \(assessment.title)"
+        titleLabel.text = assessment.title
         dateLabel.text = "Date: \(assessment.dayString)"
     }
     

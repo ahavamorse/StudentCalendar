@@ -61,7 +61,7 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     func updateUI() {
-        (notCompletedAssignments, completedAssignments) = assignmentController.getAssignments()
+        (notCompletedAssignments, completedAssignments) = assignmentController.getSortedAssignments()
         if completedAssignments.isEmpty, notCompletedAssignments.isEmpty {
             // to do: show empty state
         } else {

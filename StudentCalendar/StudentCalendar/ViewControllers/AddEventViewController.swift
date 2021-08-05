@@ -119,9 +119,9 @@ class AddEventViewController: UIViewController {
                     delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
                 }
             } else {
-//                if let delegate = self.delegate as? AssessmentsViewController {
-//                    delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-//                }
+                if let delegate = self.delegate as? AssessmentsViewController {
+                    delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
+                }
             }
             navigationController?.popViewController(animated: true)
         } else {
