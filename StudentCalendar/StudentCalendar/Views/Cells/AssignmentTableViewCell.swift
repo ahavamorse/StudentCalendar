@@ -11,6 +11,7 @@ import UIKit
 class AssignmentTableViewCell: UITableViewCell {
     
     static let reuseID = "AssignmentTableViewCell"
+    
     let subjectColorImageView = SubjectIndicatorImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let dueDateLabel = SecondaryTitleLabel(font: .preferredFont(forTextStyle: .title2))
@@ -61,20 +62,20 @@ class AssignmentTableViewCell: UITableViewCell {
         let padding: CGFloat = 12
         
         NSLayoutConstraint.activate([
-            checkboxButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            checkboxButton.heightAnchor.constraint(equalToConstant: 40),
-            checkboxButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            checkboxButton.widthAnchor.constraint(equalToConstant: 40),
-            
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20 + (2 * padding)),
-            titleLabel.trailingAnchor.constraint(equalTo: checkboxButton.leadingAnchor, constant: -padding),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30),
-            
-            subjectColorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            subjectColorImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            subjectColorImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            subjectColorImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             subjectColorImageView.heightAnchor.constraint(equalToConstant: 20),
             subjectColorImageView.widthAnchor.constraint(equalToConstant: 20),
+            
+            checkboxButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            checkboxButton.heightAnchor.constraint(equalToConstant: 40),
+            checkboxButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            checkboxButton.widthAnchor.constraint(equalToConstant: 40),
+            
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20 + (2 * padding)),
+            titleLabel.trailingAnchor.constraint(equalTo: checkboxButton.leadingAnchor, constant: -padding),
+            titleLabel.heightAnchor.constraint(equalToConstant: 30),
             
             dueDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding / 2),
             dueDateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

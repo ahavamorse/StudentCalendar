@@ -11,6 +11,7 @@ import UIKit
 class ClassTableViewCell: UITableViewCell {
 
     static let reuseID = "ClassTableViewCell"
+    
     let subjectColorImageView = SubjectIndicatorImageView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title1))
     let dateLabel = SecondaryTitleLabel(font: .preferredFont(forTextStyle: .title2))
@@ -31,7 +32,7 @@ class ClassTableViewCell: UITableViewCell {
         self.cellClass = cellClass
         subjectColorImageView.set(color: cellClass.subject.color)
         
-        titleLabel.text = cellClass.title
+        titleLabel.text = "\(cellClass.subject.title):  \(cellClass.title)"
         dateLabel.text = "Date: \(cellClass.dayString)"
     }
     
@@ -48,6 +49,7 @@ class ClassTableViewCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             titleLabel.leadingAnchor.constraint(equalTo: subjectColorImageView.trailingAnchor, constant: padding),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            titleLabel.heightAnchor.constraint(equalToConstant: 30),
             
             dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding / 2),
             dateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
