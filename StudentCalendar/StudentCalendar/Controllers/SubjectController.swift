@@ -10,7 +10,7 @@ import Foundation
 
 class SubjectController {
     
-    var subjects: [String: Subject] = [:]
+    var subjects: [String: Subject] = [:]  // to do: persist data
     let assignmentController: AssignmentController
     let classController: ClassController
     let assessmentController: AssessmentController
@@ -53,5 +53,13 @@ class SubjectController {
         } else {
             assessmentController.remove(event)
         }
+    }
+    
+    func getSubjects() -> [Subject] {
+        var allSubjects: [Subject] = []
+        for subject in subjects.values {
+            allSubjects.append(subject)
+        }
+        return allSubjects
     }
 }
