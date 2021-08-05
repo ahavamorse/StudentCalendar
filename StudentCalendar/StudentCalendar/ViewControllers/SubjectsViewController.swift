@@ -18,6 +18,7 @@ class SubjectsViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
+        configureTableView()
     }
 
     private func configureNavigationBar() {
@@ -27,6 +28,19 @@ class SubjectsViewController: UIViewController {
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func configureTableView() {
+        view.addSubview(tableView)
+        
+        tableView.frame = view.bounds
+        tableView.rowHeight = 60
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.removeExcessCells()
+        
+        tableView.register(SubjectTableViewCell.self, forCellReuseIdentifier: SubjectTableViewCell.reuseID)
     }
     
     @objc func addSubject() {
