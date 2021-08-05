@@ -19,10 +19,19 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureViewController()
     }
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAssessment))
+    }
+    
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    @objc func addAssessment() {
+        
     }
 }
