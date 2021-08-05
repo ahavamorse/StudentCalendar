@@ -15,13 +15,17 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     var subjectController: SubjectController!
     
     var classes: [Class] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
         configureTableView()
-        updateUI()
     }
     
     internal func configureNavigationBar() {
@@ -48,6 +52,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     
     @objc func addClass() {
         let addClassViewController = AddEventViewController(title: "New Class Period", type: .classPeriod)
+        addClassViewController.delegate = self
         for subject in subjectController.subjects.values {
             addClassViewController.subjects.append(subject)
         }
@@ -57,7 +62,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
     func updateUI() {
         classes = classController.getClasses()
         if classes.isEmpty {
-            // todo: show empty state
+            // to do: show empty state
         } else {
             DispatchQueue.main.async {
                 self.tableView.reloadData()

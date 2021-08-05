@@ -14,14 +14,19 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     var assignmentController: AssignmentController!
     var subjectController: SubjectController!
     
-    var assignments: [Assignment] = []
+    var notCompletedAssignments: [Assignment] = []
+    var completedAssignments: [Assignment] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
         configureTableView()
-        updateUI()
     }
     
     internal func configureNavigationBar() {
@@ -48,6 +53,7 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     
     @objc func addAssignment() {
         let addAssignmentViewController = AddEventViewController(title: "New Assignment", dateLabelText: "Due Date:", type: .assignment)
+        addAssignmentViewController.delegate = self
         for subject in subjectController.subjects.values {
             addAssignmentViewController.subjects.append(subject)
         }
@@ -55,9 +61,9 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
     }
     
     func updateUI() {
-        assignments = assignmentController.getAssignments()
-        if assignments.isEmpty {
-            // todo: show empty state
+        (notCompletedAssignments, completedAssignments) = assignmentController.getAssignments()
+        if completedAssignments.isEmpty, notCompletedAssignments.isEmpty {
+            // to do: show empty state
         } else {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -68,14 +74,40 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
 }
 
 extension AssignmentsViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Not Completed"
+        default:
+            return "Completed"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return assignments.count
+        switch section {
+        case 0:
+            return notCompletedAssignments.count
+        default:
+            return completedAssignments.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssignmentTableViewCell.reuseID) as! AssignmentTableViewCell
-        let assignment = assignments[indexPath.row]
-        cell.set(assignment: assignment)
+        
+        switch indexPath.section {
+        case 0:
+            let assignment = notCompletedAssignments[indexPath.row]
+            cell.set(assignment: assignment)
+        default:
+            let assignment = completedAssignments[indexPath.row]
+            cell.set(assignment: assignment)
+        }
         cell.delegate = self
         return cell
     }

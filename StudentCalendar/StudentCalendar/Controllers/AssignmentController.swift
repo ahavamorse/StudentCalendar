@@ -10,7 +10,7 @@ import Foundation
 
 class AssignmentController {
     
-    private var assignments: [Date: [Assignment]] = [:] // todo: split into completed and not, then sort by date
+    private var assignments: [Date: [Assignment]] = [:]
     var delegate: EventController?
     var subjectController: SubjectController?
     
@@ -79,8 +79,26 @@ class AssignmentController {
         return nil
     }
     
+    func getAssignments() -> ([Assignment], [Assignment]) {
+        // return assignments in sorted order, split by status
+        let sortedDates = assignments.keys.sorted()
+        var completedAssignments: [Assignment] = []
+        var notCompletedAssignments: [Assignment] = []
+        for key in sortedDates {
+            for assignment in assignments[key] ?? [] {
+                switch assignment.status {
+                case .completed:
+                    completedAssignments.append(assignment)
+                case .notStarted:
+                    notCompletedAssignments.append(assignment)
+                }
+            }
+        }
+        return (notCompletedAssignments, completedAssignments)
+    }
+    
     func getAssignments() -> [Assignment] {
-        // return assignments in sorted order
+        // return all assignments in sorted order
         let sortedDates = assignments.keys.sorted()
         var sortedAssignments: [Assignment] = []
         for key in sortedDates {

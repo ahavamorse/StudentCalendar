@@ -51,7 +51,7 @@ class AssignmentTableViewCell: UITableViewCell {
             checkboxButton.check()
         }
         delegate?.assignmentController.changeStatus(assignment!)
-//        delegate?.tableView.reloadData()
+        delegate?.updateUI()
     }
     
     private func configure() {

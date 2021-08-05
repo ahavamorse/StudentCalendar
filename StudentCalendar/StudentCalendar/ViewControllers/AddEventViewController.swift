@@ -23,8 +23,6 @@ class AddEventViewController: UIViewController {
     var eventType: EventType
     var titleString: String
     
-    // TODO: have text field resign first responder when hit enter or on exit
-    
     init(title: String, dateLabelText: String = "Date:", type: EventType) {
         self.titleString = title
         self.dateLabel.text = dateLabelText
