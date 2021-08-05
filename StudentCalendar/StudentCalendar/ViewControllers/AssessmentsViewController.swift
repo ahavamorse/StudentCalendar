@@ -42,10 +42,15 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         tableView.allowsSelection = false
         tableView.removeExcessCells()
         
-        tableView.register(AssessmentTableViewCell, forCellReuseIdentifier: AssessmentTableViewCell.reuseID)
+        tableView.register(AssessmentTableViewCell.self, forCellReuseIdentifier: AssessmentTableViewCell.reuseID)
     }
     
     @objc func addAssessment() {
-        
+        let addAssessmentViewController = AddEventViewController(title: "New Assessment", type: .assessment)
+        addAssessmentViewController.delegate = self
+        for subject in subjectController.subjects.values {
+            addAssessmentViewController.subjects.append(subject)
+        }
+        navigationController?.pushViewController(addAssessmentViewController, animated: true)
     }
 }
