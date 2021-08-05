@@ -20,6 +20,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
+        configureTableView()
     }
     
     func configureNavigationBar() {
@@ -29,6 +30,19 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
+    }
+    
+    func configureTableView() {
+        view.addSubview(tableView)
+        
+        tableView.frame = view.bounds
+        tableView.rowHeight = 80 // might change
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.removeExcessCells()
+        
+        tableView.register(AssessmentTableViewCell, forCellReuseIdentifier: AssessmentTableViewCell.reuseID)
     }
     
     @objc func addAssessment() {
