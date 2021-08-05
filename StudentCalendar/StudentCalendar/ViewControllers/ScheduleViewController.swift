@@ -52,7 +52,7 @@ class ScheduleViewController: UIViewController {
     
     func updateUI() {
         if eventsByDay.isEmpty {
-            // todo: show empty state
+            // to do: show empty state
         } else {
             DispatchQueue.main.async {
                 self.tableView.reloadData()

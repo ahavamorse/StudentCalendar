@@ -33,6 +33,7 @@
 		0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */; };
 		0C600EDB26A8AEFD00CFEEBA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */; };
 		0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */; };
+		0CC045BA26BC6E4A0076108F /* AssessmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */; };
 		0CDE7E9326AF11CB00E3ECBD /* SubjectIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */; };
 		0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */; };
 		0CDE7E9726B20B3A00E3ECBD /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */; };
@@ -69,6 +70,7 @@
 		0C600ED526A895A700CFEEBA /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		0C600EDA26A8AEFD00CFEEBA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentsViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectIndicatorImageView.swift; sourceTree = "<group>"; };
 		0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */,
 				0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */,
 				0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */,
+				0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */,
 				0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */,
 			);
 			path = ViewControllers;
@@ -288,6 +291,7 @@
 				0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */,
 				0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
+				0CC045BA26BC6E4A0076108F /* AssessmentsViewController.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
 				0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */,
 				0C10AC6026A9E0AF00C63610 /* EventController.swift in Sources */,
