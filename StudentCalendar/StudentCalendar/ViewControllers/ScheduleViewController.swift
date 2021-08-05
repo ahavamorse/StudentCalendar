@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
     
-    let tableView = UITableView()
+    var tableView = UITableView()
     var eventController: EventController!
     var subjectController: SubjectController!
     var eventsByDay: [[Event]] = []
@@ -66,7 +66,7 @@ class ScheduleViewController: UIViewController {
     }
 }
 
-extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
+extension ScheduleViewController {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return eventsByDay.count

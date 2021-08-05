@@ -18,6 +18,7 @@ class SubjectsViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
+        subjects = subjectController.getSubjects()
         configureTableView()
     }
 
@@ -44,6 +45,20 @@ class SubjectsViewController: UIViewController {
     }
     
     @objc func addSubject() {
-        
+        // to do
+    }
+}
+
+extension SubjectsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SubjectTableViewCell.reuseID) as! SubjectTableViewCell
+        let subject = subjects[indexPath.row]
+        cell.set(subject: subject)
+        return cell
     }
 }
