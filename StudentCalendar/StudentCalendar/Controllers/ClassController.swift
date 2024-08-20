@@ -19,7 +19,7 @@ class ClassController {
     }
     
     func add(_ newClasses: [Class]) {
-        // put classes in dictrionary by date
+        // put classes in dictionary by date
         for newClass in newClasses {
             if classes[newClass.date] == nil {
                 classes[newClass.date] = [newClass]

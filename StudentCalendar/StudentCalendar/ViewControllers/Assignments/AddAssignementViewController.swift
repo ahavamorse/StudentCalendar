@@ -1,14 +1,14 @@
 //
-//  AddEventViewController.swift
+//  AddAssignmentViewController.swift
 //  StudentCalendar
 //
-//  Created by HapiDani on 7/26/21.
-//  Copyright © 2021 ahavamorse. All rights reserved.
+//  Created by Ahava Morse on 8/20/24.
+//  Copyright © 2024 ahavamorse. All rights reserved.
 //
 
 import UIKit
 
-class AddEventViewController: UIViewController {
+class AddAssignmentViewController: UIViewController {
     
     let stackView = UIStackView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
@@ -18,15 +18,12 @@ class AddEventViewController: UIViewController {
     let dateLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let datePickerView = UIDatePicker()
     
-    weak var delegate: EventsViewControllerProtocol?
-    var subjects: [Subject] = []
-    var eventType: EventType
-    var titleString: String
+    var subjects: [Subject]
+    var controller: AssignmentController
     
-    init(title: String, dateLabelText: String = "Date:", type: EventType) {
-        self.titleString = title
-        self.dateLabel.text = dateLabelText
-        self.eventType = type
+    init(subjects: [Subject], controller: AssignmentController) {
+        self.subjects = subjects
+        self.controller = controller
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,10 +35,9 @@ class AddEventViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
-        createTabGestureRecognizer()
+        createTapGestureRecognizer()
         configureStackView()
         configureUIElements()
-        configureStackView()
         layoutUI()
     }
     
@@ -51,10 +47,10 @@ class AddEventViewController: UIViewController {
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
-        title = titleString
+        title = "New Assignment"
     }
     
-    private func createTabGestureRecognizer() {
+    private func createTapGestureRecognizer() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(doneEnteringTitle))
         view.addGestureRecognizer(tap)
     }
@@ -79,6 +75,7 @@ class AddEventViewController: UIViewController {
         titleTextField.borderStyle = .roundedRect
         titleTextField.addTarget(self, action: #selector(doneEnteringTitle), for: .primaryActionTriggered)
         
+        dateLabel.text = "Due Date:"
         datePickerView.datePickerMode = .dateAndTime
         
         subjectLabel.text = "Subject:"
@@ -109,20 +106,8 @@ class AddEventViewController: UIViewController {
     
     @objc func doneButtonTapped() {
         if let title = titleTextField.text, !title.isEmpty {
-            if eventType == .assignment {
-                if let delegate = self.delegate as? AssignmentsViewController {
-                    
-                    delegate.assignmentController.add([Assignment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], status: .notStarted, date: datePickerView.date)])
-                }
-            } else if eventType == .classPeriod {
-                if let delegate = self.delegate as? ClassesViewController {
-                    delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-                }
-            } else {
-                if let delegate = self.delegate as? AssessmentsViewController {
-                    delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-                }
-            }
+            let subject = subjects[subjectPickerView.selectedRow(inComponent: 0)]
+            controller.add([Assignment(title: title, subject: subject, status: .notStarted, date: datePickerView.date)])
             navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Missing Title", message: "Please enter a title before trying to save.", preferredStyle: .alert)
@@ -132,7 +117,7 @@ class AddEventViewController: UIViewController {
     }
 }
     
-extension AddEventViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension AddAssignmentViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

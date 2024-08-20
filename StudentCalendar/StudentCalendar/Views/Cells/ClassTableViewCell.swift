@@ -33,7 +33,7 @@ class ClassTableViewCell: UITableViewCell {
         subjectColorImageView.set(color: cellClass.subject.color)
         
         titleLabel.text = "\(cellClass.subject.title):  \(cellClass.title)"
-        dateLabel.text = "Date: \(cellClass.dayString)"
+        dateLabel.text = "Time: \(cellClass.timeString)"
     }
     
     private func configure() {

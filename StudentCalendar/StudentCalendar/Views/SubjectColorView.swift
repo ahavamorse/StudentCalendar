@@ -22,8 +22,6 @@ class SubjectColorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var colorName: String?
-    
     func set(colorName: String, color: UIColor) {
         subjectColorImageView.set(color: color)
         titleLabel.text = colorName
@@ -36,14 +34,12 @@ class SubjectColorView: UIView {
         
         NSLayoutConstraint.activate([
             subjectColorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            subjectColorImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             subjectColorImageView.heightAnchor.constraint(equalToConstant: 20),
             subjectColorImageView.widthAnchor.constraint(equalToConstant: 20),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: subjectColorImageView.trailingAnchor, constant: padding),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             titleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }

@@ -19,7 +19,7 @@ class AssignmentController {
     }
     
     func add(_ newAssignments: [Assignment]) {
-        // put assignments in dictrionary by date
+        // put assignments in dictionary by date
         for assignment in newAssignments {
             if assignments[assignment.date] == nil {
                 assignments[assignment.date] = [assignment]

@@ -34,7 +34,6 @@ class EventTableViewCell: UITableViewCell {
     private func configure() {
         addSubviews(subjectColorImageView, titleLabel, timeLabel)
         
-//        accessoryType = .disclosureIndicator
         let padding: CGFloat = 12
         
         NSLayoutConstraint.activate([
@@ -44,7 +43,6 @@ class EventTableViewCell: UITableViewCell {
             subjectColorImageView.widthAnchor.constraint(equalToConstant: 20),
             
             timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30 - padding), // for with disclosure indicator
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             timeLabel.heightAnchor.constraint(equalToConstant: 40),
             

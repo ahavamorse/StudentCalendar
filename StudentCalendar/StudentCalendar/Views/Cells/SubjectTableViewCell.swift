@@ -24,8 +24,6 @@ class SubjectTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var subject: Subject?
-    
     func set(subject: Subject) {
         subjectColorImageView.set(color: subject.color)
         titleLabel.text = subject.title

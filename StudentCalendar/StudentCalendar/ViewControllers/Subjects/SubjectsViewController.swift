@@ -11,25 +11,34 @@ import UIKit
 class SubjectsViewController: UIViewController {
     
     var tableView = UITableView()
-    var subjectController: SubjectController!
     var subjects: [Subject] = []
+    var subjectController: SubjectController
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
+    init(subjectController: SubjectController) {
+        self.subjectController = subjectController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
-        subjects = subjectController.getSubjects()
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
 
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSubject))
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
     }
     
     private func configureViewController() {
@@ -50,16 +59,16 @@ class SubjectsViewController: UIViewController {
         tableView.register(SubjectTableViewCell.self, forCellReuseIdentifier: SubjectTableViewCell.reuseID)
     }
     
-    @objc func addSubject() {
-        let addSubjectViewController = AddSubjectViewController(title: "New Subject", subjectController: subjectController)
-        navigationController?.pushViewController(addSubjectViewController, animated: true)
-    }
-    
-    func updateUI() {
+    private func updateUI() {
         subjects = subjectController.getSubjects()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    @objc func addSubject() {
+        let addSubjectViewController = AddSubjectViewController(subjectController: subjectController)
+        navigationController?.pushViewController(addSubjectViewController, animated: true)
     }
 }
 

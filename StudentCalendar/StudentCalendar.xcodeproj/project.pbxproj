@@ -38,12 +38,13 @@
 		0CC045BE26BC967D0076108F /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC045BD26BC967D0076108F /* SubjectsViewController.swift */; };
 		0CC045C026BC99CA0076108F /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC045BF26BC99CA0076108F /* SubjectTableViewCell.swift */; };
 		0CDE7E9326AF11CB00E3ECBD /* SubjectIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */; };
-		0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */; };
 		0CDE7E9726B20B3A00E3ECBD /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */; };
-		0CDE7E9D26B3087D00E3ECBD /* EventsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */; };
 		0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */; };
 		EB70676F2C7533E200BFF12E /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */; };
 		EB7067712C75392E00BFF12E /* SubjectColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7067702C75392E00BFF12E /* SubjectColorView.swift */; };
+		EB7067732C7545AD00BFF12E /* AddAssignementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7067722C7545AD00BFF12E /* AddAssignementViewController.swift */; };
+		EB7067752C75464600BFF12E /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7067742C75464600BFF12E /* AddClassViewController.swift */; };
+		EB7067772C7546FC00BFF12E /* AddAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7067762C7546FC00BFF12E /* AddAssessmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,12 +81,13 @@
 		0CC045BD26BC967D0076108F /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		0CC045BF26BC99CA0076108F /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 		0CDE7E9226AF11CB00E3ECBD /* SubjectIndicatorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectIndicatorImageView.swift; sourceTree = "<group>"; };
-		0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
-		0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
 		EB7067702C75392E00BFF12E /* SubjectColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectColorView.swift; sourceTree = "<group>"; };
+		EB7067722C7545AD00BFF12E /* AddAssignementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignementViewController.swift; sourceTree = "<group>"; };
+		EB7067742C75464600BFF12E /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		EB7067762C7546FC00BFF12E /* AddAssessmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssessmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,15 +178,12 @@
 		0C600ECF26A88D6100CFEEBA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
 				0C600EDE26A8C11600CFEEBA /* TabBarViewController.swift */,
-				0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */,
-				0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */,
-				0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */,
-				0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */,
-				0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */,
-				0CC045BD26BC967D0076108F /* SubjectsViewController.swift */,
-				EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */,
+				0C600EC926A885EC00CFEEBA /* ScheduleViewController.swift */,
+				EB70677B2C754BFB00BFF12E /* Subjects */,
+				EB70677A2C754BD900BFF12E /* Assignments */,
+				EB7067782C754BC600BFF12E /* Classes */,
+				EB7067792C754BD200BFF12E /* Assessments */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,11 +191,11 @@
 		0C600ED026A88D7A00CFEEBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB7067702C75392E00BFF12E /* SubjectColorView.swift */,
 				0C10AC6A26AB29DE00C63610 /* Buttons */,
 				0C10AC6926AB29CE00C63610 /* ImageViews */,
 				0C600ED926A8AEDE00CFEEBA /* Labels */,
 				0C600ED126A88D8800CFEEBA /* Cells */,
-				EB7067702C75392E00BFF12E /* SubjectColorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +229,42 @@
 				0C10AC6126A9EC2E00C63610 /* SecondaryTitleLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		EB7067782C754BC600BFF12E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */,
+				EB7067742C75464600BFF12E /* AddClassViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EB7067792C754BD200BFF12E /* Assessments */ = {
+			isa = PBXGroup;
+			children = (
+				0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */,
+				EB7067762C7546FC00BFF12E /* AddAssessmentViewController.swift */,
+			);
+			path = Assessments;
+			sourceTree = "<group>";
+		};
+		EB70677A2C754BD900BFF12E /* Assignments */ = {
+			isa = PBXGroup;
+			children = (
+				0C10AC6526AB1CAE00C63610 /* AssignmentsViewController.swift */,
+				EB7067722C7545AD00BFF12E /* AddAssignementViewController.swift */,
+			);
+			path = Assignments;
+			sourceTree = "<group>";
+		};
+		EB70677B2C754BFB00BFF12E /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				0CC045BD26BC967D0076108F /* SubjectsViewController.swift */,
+				EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */,
+			);
+			path = Subjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
-				0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */,
+				EB7067752C75464600BFF12E /* AddClassViewController.swift in Sources */,
 				0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */,
 				EB70676F2C7533E200BFF12E /* AddSubjectViewController.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
@@ -312,7 +347,6 @@
 				0C10AC6E26AB37EE00C63610 /* AssignmentTableViewCell.swift in Sources */,
 				0C10AC6026A9E0AF00C63610 /* EventController.swift in Sources */,
 				0C10AC5E26A9DE7200C63610 /* Date+Ext.swift in Sources */,
-				0CDE7E9D26B3087D00E3ECBD /* EventsViewControllerProtocol.swift in Sources */,
 				0C10AC7026AB38CD00C63610 /* SubjectController.swift in Sources */,
 				0C600EC126A879FB00CFEEBA /* Assignment.swift in Sources */,
 				0C10AC5826A9CC2300C63610 /* AssignmentController.swift in Sources */,
@@ -321,6 +355,8 @@
 				0C600EDF26A8C11600CFEEBA /* TabBarViewController.swift in Sources */,
 				0CDE7E9726B20B3A00E3ECBD /* ClassesViewController.swift in Sources */,
 				0C600ECA26A885EC00CFEEBA /* ScheduleViewController.swift in Sources */,
+				EB7067772C7546FC00BFF12E /* AddAssessmentViewController.swift in Sources */,
+				EB7067732C7545AD00BFF12E /* AddAssignementViewController.swift in Sources */,
 				0C600ECC26A8873E00CFEEBA /* Event.swift in Sources */,
 				0C10AC6426A9ED6A00C63610 /* UIView+Ext.swift in Sources */,
 				0C600EA726A8745000CFEEBA /* AppDelegate.swift in Sources */,

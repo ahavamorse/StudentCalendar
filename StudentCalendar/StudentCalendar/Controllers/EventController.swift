@@ -10,11 +10,11 @@ import Foundation
 
 class EventController {
     
+    private var events: [Date: [Event]] = [:]
     var assignmentController: AssignmentController
     var classController: ClassController
     var assessmentController: AssessmentController
     
-    private var events: [Date: [Event]] = [:]
     
     init(assignmentController: AssignmentController, classController: ClassController, assessmentController: AssessmentController) {
         self.assignmentController = assignmentController
@@ -37,7 +37,7 @@ class EventController {
     }
     
     func add(_ newEvents: [Event]) {
-        // put assignments in dictrionary by date
+        // put assignments in dictionary by date
         for event in newEvents {
             if events[event.date] == nil {
                 events[event.date] = [event]
@@ -48,7 +48,7 @@ class EventController {
     }
     
     func getEvents() -> [Event] {
-        // return assignments in sorted order
+        // return events in sorted order
         let sortedDates = events.keys.sorted()
         var sortedEvents: [Event] = []
         for key in sortedDates {

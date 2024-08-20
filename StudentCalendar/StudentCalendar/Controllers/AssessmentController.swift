@@ -19,7 +19,7 @@ class AssessmentController {
     }
     
     func add(_ newAssessments: [Assessment]) {
-        // put assessments in dictrionary by date
+        // put assessments in dictionary by date
         for newAssessment in newAssessments {
             if assessments[newAssessment.date] == nil {
                 assessments[newAssessment.date] = [newAssessment]

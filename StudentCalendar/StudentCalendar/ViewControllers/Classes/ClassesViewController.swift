@@ -8,17 +8,21 @@
 
 import UIKit
 
-class ClassesViewController: UIViewController, EventsViewControllerProtocol {
+class ClassesViewController: UIViewController {
     
     var tableView = UITableView()
-    var classController: ClassController!
-    var subjectController: SubjectController!
-    
     var classes: [[Class]] = []
+    var classController: ClassController
+    var subjectController: SubjectController
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
+    init(classController: ClassController, subjectController: SubjectController) {
+        self.classController = classController
+        self.subjectController = subjectController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -28,16 +32,23 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
         configureTableView()
     }
     
-    internal func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClass))
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
     }
     
-    internal func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = "Classes"
     }
     
-    internal func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
@@ -50,16 +61,7 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
         tableView.register(ClassTableViewCell.self, forCellReuseIdentifier: ClassTableViewCell.reuseID)
     }
     
-    @objc func addClass() {
-        let addClassViewController = AddEventViewController(title: "New Class Period", type: .classPeriod)
-        addClassViewController.delegate = self
-        for subject in subjectController.subjects.values {
-            addClassViewController.subjects.append(subject)
-        }
-        navigationController?.pushViewController(addClassViewController, animated: true)
-    }
-    
-    func updateUI() {
+    private func updateUI() {
         classes = classController.getClassesByDay()
         if classes.isEmpty {
             // to do: show empty state
@@ -70,9 +72,14 @@ class ClassesViewController: UIViewController, EventsViewControllerProtocol {
             }
         }
     }
+    
+    @objc func addClass() {
+        let addClassViewController = AddClassViewController(subjects: subjectController.getSubjects(), controller: classController)
+        navigationController?.pushViewController(addClassViewController, animated: true)
+    }
 }
 
-extension ClassesViewController {
+extension ClassesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return classes.count

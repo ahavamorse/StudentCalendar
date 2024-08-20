@@ -1,5 +1,5 @@
 //
-//  AddSubjectViewController.swift
+//  AddAssessmentViewController.swift
 //  StudentCalendar
 //
 //  Created by Ahava Morse on 8/20/24.
@@ -8,20 +8,22 @@
 
 import UIKit
 
-class AddSubjectViewController: UIViewController {
+class AddAssessmentViewController: UIViewController {
     
     let stackView = UIStackView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let titleTextField = UITextField()
-    let colorLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
-    let colorPickerView = UIPickerView()
+    let subjectLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
+    let subjectPickerView = UIPickerView()
+    let dateLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
+    let datePickerView = UIDatePicker()
     
-    var subjectController: SubjectController
-    var titleString: String
+    var subjects: [Subject]
+    var controller: AssessmentController
     
-    init(title: String, subjectController: SubjectController) {
-        self.titleString = title
-        self.subjectController = subjectController
+    init(subjects: [Subject], controller: AssessmentController) {
+        self.subjects = subjects
+        self.controller = controller
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,7 +47,7 @@ class AddSubjectViewController: UIViewController {
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
-        title = titleString
+        title = "New Assessment"
     }
     
     private func createTapGestureRecognizer() {
@@ -60,8 +62,10 @@ class AddSubjectViewController: UIViewController {
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(titleTextField)
-        stackView.addArrangedSubview(colorLabel)
-        stackView.addArrangedSubview(colorPickerView)
+        stackView.addArrangedSubview(dateLabel)
+        stackView.addArrangedSubview(datePickerView)
+        stackView.addArrangedSubview(subjectLabel)
+        stackView.addArrangedSubview(subjectPickerView)
     }
     
     private func configureUIElements() {
@@ -71,9 +75,12 @@ class AddSubjectViewController: UIViewController {
         titleTextField.borderStyle = .roundedRect
         titleTextField.addTarget(self, action: #selector(doneEnteringTitle), for: .primaryActionTriggered)
         
-        colorLabel.text = "Color:"
-        colorPickerView.dataSource = self
-        colorPickerView.delegate = self
+        dateLabel.text = "Date:"
+        datePickerView.datePickerMode = .dateAndTime
+        
+        subjectLabel.text = "Subject:"
+        subjectPickerView.dataSource = self
+        subjectPickerView.delegate = self
     }
     
     private func layoutUI() {
@@ -88,7 +95,8 @@ class AddSubjectViewController: UIViewController {
             
             titleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             titleTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            colorLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+            dateLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            subjectLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
     
@@ -98,9 +106,8 @@ class AddSubjectViewController: UIViewController {
     
     @objc func doneButtonTapped() {
         if let title = titleTextField.text, !title.isEmpty {
-            let colorIndex = colorPickerView.selectedRow(inComponent: 0)
-            let colors = SubjectColor.colors.sorted { $0.key < $1.key }
-            subjectController.add([Subject(title: title, colorName: colors[colorIndex].key)])
+            let subject = subjects[subjectPickerView.selectedRow(inComponent: 0)]
+            controller.add([Assessment(title: title, subject: subject, date: datePickerView.date)])
             navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Missing Title", message: "Please enter a title before trying to save.", preferredStyle: .alert)
@@ -109,22 +116,20 @@ class AddSubjectViewController: UIViewController {
         }
     }
 }
-
-extension AddSubjectViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+extension AddAssessmentViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SubjectColor.colors.count
+        return subjects.count
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let colors = SubjectColor.colors.sorted { $0.key < $1.key }
-        let color = colors[row]
-        
+        let subject = subjects[row]
         let view = view as? SubjectColorView ?? SubjectColorView()
-        view.set(colorName: color.key, color: color.value)
+        view.set(colorName: subject.title, color: subject.color)
         return view
     }
 }

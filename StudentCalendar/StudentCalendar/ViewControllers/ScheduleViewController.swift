@@ -8,16 +8,21 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
+class ScheduleViewController: UIViewController {
     
     var tableView = UITableView()
-    var eventController: EventController!
-    var subjectController: SubjectController!
     var eventsByDay: [[Event]] = []
+    var eventController: EventController
+    var subjectController: SubjectController
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
+    init(eventController: EventController, subjectController: SubjectController) {
+        self.eventController = eventController
+        self.subjectController = subjectController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -27,16 +32,22 @@ class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
         configureTableView()
     }
     
-    func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Subjects", style: .plain, target: self, action: #selector(showSubjects))
     }
     
-    func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = "Schedule"
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
@@ -49,13 +60,7 @@ class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.reuseID)
     }
     
-    @objc func showSubjects() {
-        let subjectsViewController = SubjectsViewController()
-        subjectsViewController.subjectController = subjectController
-        navigationController?.pushViewController(subjectsViewController, animated: true)
-    }
-    
-    func updateUI() {
+    private func updateUI() {
         eventsByDay = eventController.getEventsByDay()
         if eventsByDay.isEmpty {
             // to do: show empty state
@@ -66,9 +71,14 @@ class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
             }
         }
     }
+    
+    @objc func showSubjects() {
+        let subjectsViewController = SubjectsViewController(subjectController: subjectController)
+        navigationController?.pushViewController(subjectsViewController, animated: true)
+    }
 }
 
-extension ScheduleViewController {
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return eventsByDay.count

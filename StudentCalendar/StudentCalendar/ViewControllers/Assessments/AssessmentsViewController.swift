@@ -8,18 +8,22 @@
 
 import UIKit
 
-class AssessmentsViewController: UIViewController, EventsViewControllerProtocol {
+class AssessmentsViewController: UIViewController {
     
     var tableView = UITableView()
-    var assessmentController: AssessmentController!
-    var subjectController: SubjectController!
-    
     var assessments: [String: [Assessment]] = [:]
     var subjects: [Subject] = []
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
+    var assessmentController: AssessmentController
+    var subjectController: SubjectController
+    
+    init(assessmentController: AssessmentController, subjectController: SubjectController) {
+        self.assessmentController = assessmentController
+        self.subjectController = subjectController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -29,14 +33,19 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         configureTableView()
     }
     
-    func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAssessment))
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
     }
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = "Assessments"
     }
     
     func configureTableView() {
@@ -52,16 +61,7 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
         tableView.register(AssessmentTableViewCell.self, forCellReuseIdentifier: AssessmentTableViewCell.reuseID)
     }
     
-    @objc func addAssessment() {
-        let addAssessmentViewController = AddEventViewController(title: "New Assessment", type: .assessment)
-        addAssessmentViewController.delegate = self
-        for subject in subjectController.subjects.values {
-            addAssessmentViewController.subjects.append(subject)
-        }
-        navigationController?.pushViewController(addAssessmentViewController, animated: true)
-    }
-    
-    func updateUI() {
+    private func updateUI() {
         (subjects, assessments) = assessmentController.getSortedAssessments()
         if assessments.isEmpty {
             // to do: show empty state
@@ -72,9 +72,14 @@ class AssessmentsViewController: UIViewController, EventsViewControllerProtocol 
             }
         }
     }
+    
+    @objc func addAssessment() {
+        let addAssessmentViewController = AddAssessmentViewController(subjects: subjectController.getSubjects(), controller: assessmentController)
+        navigationController?.pushViewController(addAssessmentViewController, animated: true)
+    }
 }
 
-extension AssessmentsViewController {
+extension AssessmentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return assessments.keys.count

@@ -8,18 +8,22 @@
 
 import UIKit
 
-class AssignmentsViewController: UIViewController, EventsViewControllerProtocol {
+class AssignmentsViewController: UIViewController {
 
     var tableView = UITableView()
-    var assignmentController: AssignmentController!
-    var subjectController: SubjectController!
-    
     var notCompletedAssignments: [Assignment] = []
     var completedAssignments: [Assignment] = []
+    var assignmentController: AssignmentController
+    var subjectController: SubjectController
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
+    init(assignmentController: AssignmentController, subjectController: SubjectController) {
+        self.assignmentController = assignmentController
+        self.subjectController = subjectController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -29,16 +33,22 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
         configureTableView()
     }
     
-    internal func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAssignment))
     }
     
-    internal func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = "Assignments"
     }
     
-    internal func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
@@ -49,15 +59,6 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
         tableView.removeExcessCells()
         
         tableView.register(AssignmentTableViewCell.self, forCellReuseIdentifier: AssignmentTableViewCell.reuseID)
-    }
-    
-    @objc func addAssignment() {
-        let addAssignmentViewController = AddEventViewController(title: "New Assignment", dateLabelText: "Due Date:", type: .assignment)
-        addAssignmentViewController.delegate = self
-        for subject in subjectController.subjects.values {
-            addAssignmentViewController.subjects.append(subject)
-        }
-        navigationController?.pushViewController(addAssignmentViewController, animated: true)
     }
     
     func updateUI() {
@@ -71,9 +72,14 @@ class AssignmentsViewController: UIViewController, EventsViewControllerProtocol 
             }
         }
     }
+    
+    @objc func addAssignment() {
+        let addAssignmentViewController = AddAssignmentViewController(subjects: subjectController.getSubjects(), controller: assignmentController)
+        navigationController?.pushViewController(addAssignmentViewController, animated: true)
+    }
 }
 
-extension AssignmentsViewController {
+extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
