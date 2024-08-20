@@ -29,6 +29,7 @@ class SubjectsViewController: UIViewController {
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
+        title = "Subjects"
     }
     
     private func configureTableView() {

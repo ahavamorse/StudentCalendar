@@ -50,7 +50,9 @@ class ScheduleViewController: UIViewController, EventsViewControllerProtocol {
     }
     
     @objc func showSubjects() {
-        // to do
+        let subjectsViewController = SubjectsViewController()
+        subjectsViewController.subjectController = subjectController
+        navigationController?.pushViewController(subjectsViewController, animated: true)
     }
     
     func updateUI() {
