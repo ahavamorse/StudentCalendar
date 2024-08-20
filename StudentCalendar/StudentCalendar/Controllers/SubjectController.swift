@@ -60,6 +60,6 @@ class SubjectController {
         for subject in subjects.values {
             allSubjects.append(subject)
         }
-        return allSubjects
+        return allSubjects.sorted(by: { $0.title < $1.title })
     }
 }

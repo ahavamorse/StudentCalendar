@@ -42,6 +42,8 @@
 		0CDE7E9726B20B3A00E3ECBD /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */; };
 		0CDE7E9D26B3087D00E3ECBD /* EventsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */; };
 		0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */; };
+		EB70676F2C7533E200BFF12E /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */; };
+		EB7067712C75392E00BFF12E /* SubjectColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7067702C75392E00BFF12E /* SubjectColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		0CDE7E9626B20B3A00E3ECBD /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		0CDE7E9C26B3087C00E3ECBD /* EventsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		0CDE7E9E26B30A1E00E3ECBD /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
+		EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
+		EB7067702C75392E00BFF12E /* SubjectColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 				0CC045B926BC6E4A0076108F /* AssessmentsViewController.swift */,
 				0CDE7E9426AF18E300E3ECBD /* AddEventViewController.swift */,
 				0CC045BD26BC967D0076108F /* SubjectsViewController.swift */,
+				EB70676E2C7533E200BFF12E /* AddSubjectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				0C10AC6926AB29CE00C63610 /* ImageViews */,
 				0C600ED926A8AEDE00CFEEBA /* Labels */,
 				0C600ED126A88D8800CFEEBA /* Cells */,
+				EB7067702C75392E00BFF12E /* SubjectColorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				0C600ED626A895A700CFEEBA /* UITableView+Ext.swift in Sources */,
 				0CDE7E9526AF18E300E3ECBD /* AddEventViewController.swift in Sources */,
 				0CDE7E9F26B30A1E00E3ECBD /* ClassTableViewCell.swift in Sources */,
+				EB70676F2C7533E200BFF12E /* AddSubjectViewController.swift in Sources */,
 				0C10AC6226A9EC2E00C63610 /* SecondaryTitleLabel.swift in Sources */,
 				0CC045BA26BC6E4A0076108F /* AssessmentsViewController.swift in Sources */,
 				0C10AC5A26A9CC3100C63610 /* ClassController.swift in Sources */,
@@ -327,6 +334,7 @@
 				0CC045C026BC99CA0076108F /* SubjectTableViewCell.swift in Sources */,
 				0C600EC526A87EBD00CFEEBA /* Assessment.swift in Sources */,
 				0CDE7E9326AF11CB00E3ECBD /* SubjectIndicatorImageView.swift in Sources */,
+				EB7067712C75392E00BFF12E /* SubjectColorView.swift in Sources */,
 				0C10AC5C26A9CC3C00C63610 /* AssessmentController.swift in Sources */,
 				0C10AC6C26AB2A0A00C63610 /* CheckboxButton.swift in Sources */,
 			);

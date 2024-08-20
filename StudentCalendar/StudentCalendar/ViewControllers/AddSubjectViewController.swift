@@ -1,32 +1,27 @@
 //
-//  AddEventViewController.swift
+//  AddSubjectViewController.swift
 //  StudentCalendar
 //
-//  Created by HapiDani on 7/26/21.
-//  Copyright © 2021 ahavamorse. All rights reserved.
+//  Created by Ahava Morse on 8/20/24.
+//  Copyright © 2024 ahavamorse. All rights reserved.
 //
 
 import UIKit
 
-class AddEventViewController: UIViewController {
+class AddSubjectViewController: UIViewController {
     
     let stackView = UIStackView()
     let titleLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
     let titleTextField = UITextField()
-    let subjectLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
-    let subjectPickerView = UIPickerView()
-    let dateLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
-    let datePickerView = UIDatePicker()
+    let colorLabel = TitleLabel(font: .preferredFont(forTextStyle: .title2))
+    let colorPickerView = UIPickerView()
     
-    weak var delegate: EventsViewControllerProtocol?
-    var subjects: [Subject] = []
-    var eventType: EventType
+    var subjectController: SubjectController
     var titleString: String
     
-    init(title: String, dateLabelText: String = "Date:", type: EventType) {
+    init(title: String, subjectController: SubjectController) {
         self.titleString = title
-        self.dateLabel.text = dateLabelText
-        self.eventType = type
+        self.subjectController = subjectController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,10 +33,9 @@ class AddEventViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         configureViewController()
-        createTabGestureRecognizer()
+        createTapGestureRecognizer()
         configureStackView()
         configureUIElements()
-        configureStackView()
         layoutUI()
     }
     
@@ -54,7 +48,7 @@ class AddEventViewController: UIViewController {
         title = titleString
     }
     
-    private func createTabGestureRecognizer() {
+    private func createTapGestureRecognizer() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(doneEnteringTitle))
         view.addGestureRecognizer(tap)
     }
@@ -66,10 +60,8 @@ class AddEventViewController: UIViewController {
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(titleTextField)
-        stackView.addArrangedSubview(dateLabel)
-        stackView.addArrangedSubview(datePickerView)
-        stackView.addArrangedSubview(subjectLabel)
-        stackView.addArrangedSubview(subjectPickerView)
+        stackView.addArrangedSubview(colorLabel)
+        stackView.addArrangedSubview(colorPickerView)
     }
     
     private func configureUIElements() {
@@ -79,11 +71,9 @@ class AddEventViewController: UIViewController {
         titleTextField.borderStyle = .roundedRect
         titleTextField.addTarget(self, action: #selector(doneEnteringTitle), for: .primaryActionTriggered)
         
-        datePickerView.datePickerMode = .dateAndTime
-        
-        subjectLabel.text = "Subject:"
-        subjectPickerView.dataSource = self
-        subjectPickerView.delegate = self
+        colorLabel.text = "Color:"
+        colorPickerView.dataSource = self
+        colorPickerView.delegate = self
     }
     
     private func layoutUI() {
@@ -98,8 +88,7 @@ class AddEventViewController: UIViewController {
             
             titleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             titleTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            dateLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            subjectLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+            colorLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
     
@@ -109,20 +98,9 @@ class AddEventViewController: UIViewController {
     
     @objc func doneButtonTapped() {
         if let title = titleTextField.text, !title.isEmpty {
-            if eventType == .assignment {
-                if let delegate = self.delegate as? AssignmentsViewController {
-                    
-                    delegate.assignmentController.add([Assignment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], status: .notStarted, date: datePickerView.date)])
-                }
-            } else if eventType == .classPeriod {
-                if let delegate = self.delegate as? ClassesViewController {
-                    delegate.classController.add([Class(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-                }
-            } else {
-                if let delegate = self.delegate as? AssessmentsViewController {
-                    delegate.assessmentController.add([Assessment(title: title, subject: subjects[subjectPickerView.selectedRow(inComponent: 0)], date: datePickerView.date)])
-                }
-            }
+            let colorIndex = colorPickerView.selectedRow(inComponent: 0)
+            let colors = SubjectColor.colors.sorted { $0.key < $1.key }
+            subjectController.add([Subject(title: title, colorName: colors[colorIndex].key)])
             navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Missing Title", message: "Please enter a title before trying to save.", preferredStyle: .alert)
@@ -131,20 +109,22 @@ class AddEventViewController: UIViewController {
         }
     }
 }
-    
-extension AddEventViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+
+extension AddSubjectViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return subjects.count
+        return SubjectColor.colors.count
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let subject = subjects[row]
+        let colors = SubjectColor.colors.sorted { $0.key < $1.key }
+        let color = colors[row]
+        
         let view = view as? SubjectColorView ?? SubjectColorView()
-        view.set(colorName: subject.title, color: subject.color)
+        view.set(colorName: color.key, color: color.value)
         return view
     }
 }

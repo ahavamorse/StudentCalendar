@@ -13,6 +13,11 @@ class SubjectsViewController: UIViewController {
     var tableView = UITableView()
     var subjectController: SubjectController!
     var subjects: [Subject] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +51,15 @@ class SubjectsViewController: UIViewController {
     }
     
     @objc func addSubject() {
-        // to do
+        let addSubjectViewController = AddSubjectViewController(title: "New Subject", subjectController: subjectController)
+        navigationController?.pushViewController(addSubjectViewController, animated: true)
+    }
+    
+    func updateUI() {
+        subjects = subjectController.getSubjects()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
